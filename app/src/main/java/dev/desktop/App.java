@@ -1,6 +1,6 @@
 package dev.desktop;
 import java.util.Scanner;
-import dev.desktop.*
+import dev.desktop.*;
 public class App {
     public static void main(String args[]) {
         System.out.println("Welcome to Adventure Game");
