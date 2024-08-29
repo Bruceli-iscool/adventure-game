@@ -62,6 +62,12 @@ class characterCreator {
             // prevent health from being zero
             health = 1;
         }
-        System.out.println("Your stats are: \n" + "attack: " + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stanima);
+        System.out.println("""
+                           Your stats are: 
+                           attack: """ + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stanima);
+    }
+    public void create() {
+        character c = new character(attack, defence, health, stanima);
+        
     }
 }
