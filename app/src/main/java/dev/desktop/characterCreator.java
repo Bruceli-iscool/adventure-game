@@ -15,8 +15,53 @@ class characterCreator {
         System.out.println("You now have: " + points + " points");
         defence = Integer.parseInt(App.ask("Enter defence: "));
         if (defence > 10) {
+            // bigger than 10
             defence = 10;
             points = points - defence;
+        } else if (defence > points) {
+            defence = points;
+        } else {
+            points = points - defence;
         }
+        if (points <= 0) {
+            System.out.println("Character creation complete.");
+            review();
+        }
+        System.out.println("You now have: " + points + " points");
+        health = Integer.parseInt(App.ask("Enter health: "));
+        if (health > 10) {
+            // bigger than 10
+            health = 10;
+            points = points - health;
+        } else if (health > points) {
+            health = points;
+        } else {
+            points = points - health;
+        }
+        if (points <= 0) {
+            System.out.println("Character creation complete.");
+            review();
+        }
+        System.out.println("You now have: " + points + " points");
+        stanima = Integer.parseInt(App.ask("Enter stamina: "));
+        if (stanima > 10) {
+            // bigger than 10
+            stanima = 10;
+            points = points - stanima;
+        }else if (stanima > points) {
+            stanima = points;
+        }
+         else {
+            points = points - stanima;
+        }
+        System.out.println("Character creation complete.");
+        review();
+    }
+    private void review() {
+        if (health <= 0) {
+            // prevent health from being zero
+            health = 1;
+        }
+        System.out.println("Your stats are: \n" + "attack: " + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stanima);
     }
 }
