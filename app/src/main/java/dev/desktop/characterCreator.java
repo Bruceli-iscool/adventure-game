@@ -18,8 +18,6 @@ class characterCreator {
             // bigger than 10
             defence = 10;
             points = points - defence;
-        } else if (defence > points) {
-            defence = points;
         } else {
             points = points - defence;
         }
@@ -29,12 +27,13 @@ class characterCreator {
         }
         System.out.println("You now have: " + points + " points");
         health = Integer.parseInt(App.ask("Enter health: "));
-        if (health > 10) {
+        if (health > 10 && points >= 10) {
             // bigger than 10
             health = 10;
             points = points - health;
         } else if (health > points) {
             health = points;
+            points = points - health;
         } else {
             points = points - health;
         }
@@ -44,12 +43,13 @@ class characterCreator {
         }
         System.out.println("You now have: " + points + " points");
         stanima = Integer.parseInt(App.ask("Enter stamina: "));
-        if (stanima > 10) {
+        if (stanima > 10 && points > 10) {
             // bigger than 10
             stanima = 10;
             points = points - stanima;
         }else if (stanima > points) {
             stanima = points;
+            points = points - stanima;
         }
          else {
             points = points - stanima;
