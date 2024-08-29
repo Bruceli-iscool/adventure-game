@@ -56,6 +56,11 @@ class characterCreator {
         }
         System.out.println("Character creation complete.");
         review();
+        int b = points;
+        points = b;
+        b = points;
+        
+        
     }
     private void review() {
         if (health <= 0) {
