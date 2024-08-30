@@ -73,6 +73,6 @@ class characterCreator {
     }
     public void create() {
         character c = new character(attack, defence, health, stanima);
-        
+        c.start();
     }
 }
