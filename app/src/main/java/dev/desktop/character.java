@@ -11,7 +11,10 @@ class character {
         System.out.println("Welcome explorer! The emperor wants to see you!\nChoose a ability to train in\n1 for attack, 2 for defence, 3 for health, 4 for stamina");
         String ans = App.ask(">");
         if ("1".equals(ans.strip())) {
-            
+            attack += 1;
+        }
+        if ("2".equals(ans.strip())) {
+            defence += 1;
         }
     }
 }
