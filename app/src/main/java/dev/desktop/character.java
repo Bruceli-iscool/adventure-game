@@ -16,6 +16,16 @@ class character {
         if ("2".equals(ans.strip())) {
             defence += 1;
         }
+        if ("3".equals(ans.strip())) {
+            health += 1;
+        }
+        if ("4".equals(ans.strip())) {
+            stamina += 1;
+        }
+        else {
+            System.out.println("Not a valid option!");
+            start();
+        }
     }
 }
 
