@@ -28,4 +28,8 @@ public class Orc {
     public int attack() {
         return attack;
     }
+    public int health() {
+        return health;
+    }
+
 }

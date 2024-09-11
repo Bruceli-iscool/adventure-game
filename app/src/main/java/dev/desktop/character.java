@@ -41,8 +41,14 @@ class character {
         String ans = App.ask("Do you wish to take the combat tutorial? Y, n");
         if (ans.equals("Y")) {
             System.out.println("You have enountered an Orc. These disgusting beings eats humans like you.\nIts stats are:\n5 attack\n2 defence\n10 health\n1s stamina.");
-            
+            Orc orc = new Orc();
             ans = App.ask("During combat you have two choices, to defend or to attack.\nWhen you defend the enemy damage becomes damage minus defence\nWhen you attack you take away health.\nStamina regenerates health.\n1 to attack, 2 to defend.");
+            
+            while (orc.health() > 0) {
+                if ("1".strip().equals(ans)) {
+                    
+                }
+            }
         }
     }
 
