@@ -26,6 +26,36 @@ class character {
             System.out.println("Not a valid option!");
             start();
         }
+        System.out.println("==============================================================");
+        System.out.println("Well explorer, the gates to the imperial palace is open, go see the emperor!");
+        System.out.println("""               
+               T~~
+               |
+              /"\
+       T~~    |'| T~~
+       |    /_|_ | |
+      /"|   |     |/\
+     |   |  |     |  |
+     |   |  |     |  |
+     |   |  |     |  |
+     |___|  |     |__|
+     |   |  |  _  |  |
+     |   |  | | | |  |
+     |   |  | | | |  |
+     |   |  |     |  |
+    /_____| |_____| /_____\
+   |       |       |       |
+   |       |        |
+   |_______ |_______|_______|
+""");
+    System.out.println("Guards greet you. Greet them back? (+1 stamina) Y, n");
+    String n = App.ask(">");
+    if ("Y".equals(n)) {
+        System.out.println("You greet the guard. The guard greets you back");
+        stamina++;
+    } else {
+        System.out.println("You ignore the guard.");
+    }
     }
 }
 
