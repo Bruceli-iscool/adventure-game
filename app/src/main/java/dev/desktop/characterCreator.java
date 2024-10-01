@@ -71,7 +71,7 @@ class characterCreator {
                            Your stats are: 
                            attack: """ + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stanima);
     }
-    public void create() {
+    public void create() throws InterruptedException {
         character c = new character(attack, defence, health, stanima);
         c.start();
     }

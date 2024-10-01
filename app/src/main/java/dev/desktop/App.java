@@ -16,6 +16,7 @@ public class App {
         if ("Y".equals(ans.strip())) {
             @SuppressWarnings("unused")
             characterCreator c = new characterCreator();
+            c.create();
         }
     }
     @SuppressWarnings("resource")
