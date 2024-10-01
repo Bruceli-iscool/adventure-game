@@ -1,7 +1,7 @@
 package dev.desktop;
 import java.util.Scanner;
 public class App {
-    public static void main(String args[]) {
+    public static void main(String args[]) throws InterruptedException {
         System.out.println("Welcome to Adventure-Game\n================================================================");
         System.out.println("""   
    ____                     
