@@ -1,2 +1,2 @@
-# adventure-game
-A choose your path game written in java
+# Adventure-Game
+A choose your path high-fantasy game written in java
