@@ -1,5 +1,6 @@
 package dev.desktop;
 import java.util.Scanner;
+// note: add save/load system
 public class App {
     public static void main(String args[]) throws InterruptedException {
         System.out.println("Welcome to Adventure-Game\n================================================================");
