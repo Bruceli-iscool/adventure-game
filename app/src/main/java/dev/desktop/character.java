@@ -8,6 +8,7 @@ class character {
         stamina = s;
     }
     public void start() throws InterruptedException {
+        System.out.println("=============================================================================\nPrologue\n===============================================================================");
         System.out.println("Welcome explorer! The emperor wants to see you!\nChoose a ability to train in\n1 for attack, 2 for defence, 3 for health, 4 for stamina");
         String ans = App.ask(">");
         if ("1".equals(ans.strip())) {
@@ -28,6 +29,7 @@ class character {
         }
         System.out.println("==============================================================");
         System.out.println("Well explorer, the gates to the imperial palace is open, go see the emperor!");
+        Thread.sleep(1000);
         System.out.println("""               
                T~~
                |
@@ -48,6 +50,7 @@ class character {
    |       |        |
    |_______ |_______|_______|
 """);
+Thread.sleep(500);
     System.out.println("Guards greet you. Greet them back? (+1 stamina) Y, n");
     String n = App.ask(">");
     if ("Y".equals(n)) {
@@ -55,6 +58,19 @@ class character {
         stamina++;
     } else {
         System.out.println("You ignore the guard.");
+    }
+    Thread.sleep(100);
+    System.out.println("The guards leads you into the palace, you see walls with paintings and gold everywhere.");
+    Thread.sleep(100);
+    System.out.println("The emperor says \"Come in!\"");
+    Thread.sleep(200);
+    System.out.println("The doors open, you see the emperor his face with wrinkles. 1 to say \"Your Majesty! it is an honor to meet you!\" or 2 (or any other key) to say \"What is it emperor?\"");
+    n = App.ask(">");
+    if ("1".equals(n)) {
+        System.out.println();
+    } else {
+        stamina--;
+        System.out.println();
     }
     }
 }
