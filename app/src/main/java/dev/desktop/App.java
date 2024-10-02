@@ -13,11 +13,16 @@ public class App {
 =============================================================================
 """);
         System.out.println();
-        String ans = ask("Create a new character? Y, n");
-        if ("Y".equals(ans.strip())) {
-            @SuppressWarnings("unused")
-            characterCreator c = new characterCreator();
-            c.create();
+        String ns = ask("1 to load a game, 2 to start a new game");
+        if ("1".equals(ns)) {
+            // implement load
+        } else {
+            String ans = ask("Create a new character? Y, n");
+            if ("Y".equals(ans.strip())) {
+                @SuppressWarnings("unused")
+                characterCreator c = new characterCreator();
+                c.create();
+            }
         }
     }
     @SuppressWarnings("resource")
