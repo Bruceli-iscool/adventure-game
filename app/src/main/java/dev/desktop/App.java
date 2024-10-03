@@ -26,9 +26,9 @@ public class App {
             ns = ask(">");
             if ("1".equals(ns)) {
                 saveFile = new File("game.sav");
+                int i = 0;
                 try (Scanner scanner = new Scanner(saveFile)) {
                     while (scanner.hasNextLine()) {
-                        int i = 0;
                         save[i] = Integer.parseInt(scanner.nextLine());
                         i++;
                     }
@@ -42,7 +42,7 @@ public class App {
                         e1.printStackTrace();
                     }
                 }
-                System.out.println(save[1]);
+                loadSave(save[0], save[1], save[2], save[3], save[4]);
             }
         } else {
             String ans = ask("Create a new character? Y, n");
@@ -58,5 +58,19 @@ public class App {
         Scanner scan = new Scanner(System.in);
         System.out.println(input);
         return scan.nextLine();
+    }
+    public static void loadSave(int a, int d, int h, int s, int l) {
+        character n = new character(a, d, h, s);
+        switch(l) {
+            case 0:
+                try {
+                    n.start();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case 1:
+            break;
+        }
     }
 }
