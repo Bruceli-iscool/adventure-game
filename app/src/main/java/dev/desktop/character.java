@@ -69,10 +69,24 @@ class character {
                 "The doors open, you see the emperor his face with wrinkles. 1 to say \"Your Majesty! it is an honor to meet you!\" or 2 (or any other key) to say \"What is it emperor?\"");
         n = App.ask(">");
         if ("1".equals(n)) {
-            System.out.println();
+            System.out.println("The emperor says that you must fight the champion orc to start the quest.");
         } else {
             stamina--;
-            System.out.println();
+            System.out.println("You disrespectful little piece of garbage, fight the orc or else!");
         }
+        Thread.sleep(100);
+        System.out.println("""
+            ,      ,
+          /(.-""-.)\
+      ||  |/      |/  /|
+      | | / =.  .= | / |
+      |( |   o|/o   / )/
+       |_, '-/  |-' ,_/
+         /   |__/   \
+         | |__/|__/ /
+       ___| ||--|/ /___
+                """);
+        Thread.sleep(100);
+        System.out.println("");
     }
 }
