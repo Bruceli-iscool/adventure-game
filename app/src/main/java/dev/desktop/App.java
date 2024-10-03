@@ -42,6 +42,18 @@ public class App {
                         e1.printStackTrace();
                     }
                 }
+            }
+            else {
+                saveFile = new File(ask("Enter file path: "));
+                int i = 0;
+                try (Scanner scanner = new Scanner(saveFile)) {
+                    while (scanner.hasNextLine()) {
+                        save[i] = Integer.parseInt(scanner.nextLine());
+                        i++;
+                    }
+                } catch (FileNotFoundException e) {
+                    System.out.println("No save file with this name found found. Please use a different file.");
+                }
                 loadSave(save[0], save[1], save[2], save[3], save[4]);
             }
         } else {
