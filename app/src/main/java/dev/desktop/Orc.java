@@ -8,10 +8,10 @@ public class Orc {
     int defence;
     boolean turn = true;
     public Orc(int h, int s, int a, int d) {
-health = h;
-stamina = s;
-attack = a;
-defence = d;
+        health = h;
+        stamina = s;
+        attack = a;
+        defence = d;
 
     }
     public boolean attacked(int damage) {

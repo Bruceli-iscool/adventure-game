@@ -85,4 +85,8 @@ public class App {
             break;
         }
     }
+    // write in the file.
+    public static void save(int a, int d, int h, int s, int l) {
+
+    }
 }

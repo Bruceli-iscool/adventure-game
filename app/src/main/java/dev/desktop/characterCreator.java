@@ -62,7 +62,7 @@ class characterCreator {
         
         
     }
-    private void review() {
+    void review() {
         if (health <= 0) {
             // prevent health from being zero
             health = 1;
