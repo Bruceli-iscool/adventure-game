@@ -99,9 +99,11 @@ class character {
             n = App.ask(">");
             if (n.equals("1")) {
                 o.attacked(attack);
+                o.turn();
             } else {
                 defence = o.attack() - defence;
-                health = health-defence;
+                health = health-defence+stamina;
+                o.turn();
                 continue;
             } 
             health = health-o.attack();

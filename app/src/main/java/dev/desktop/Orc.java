@@ -24,13 +24,8 @@ public class Orc {
         }
         
     }
-    public boolean turn() {
+    public void turn() {
         health += 1;
-        if (turn == true) {
-            return true;
-        } else {
-            return false;
-        }
     }
     public int attack() {
         return attack;
