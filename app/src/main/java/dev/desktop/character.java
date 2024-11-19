@@ -1,5 +1,7 @@
 package dev.desktop;
 
+import java.io.IOException;
+
 class character {
     int attack, defence, health, stamina;
 
@@ -10,7 +12,8 @@ class character {
         stamina = s;
     }
 
-    public void start() throws InterruptedException {
+    public void start() throws InterruptedException, IOException {
+        App.save(attack, defence, health, stamina, 0);
         System.out.println(
                 "=============================================================================\nPrologue\n===============================================================================");
         System.out.println(
@@ -105,7 +108,7 @@ class character {
 
     }
     System.out.println("You killed the Orc Champion!");    
-    App.save(attack, defence, health, stamina);
+    App.save(attack, defence, health, stamina, 1);
     quest();
 }
 public void quest() throws InterruptedException {

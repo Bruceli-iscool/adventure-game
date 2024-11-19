@@ -8,7 +8,7 @@ import java.io.FileWriter;
 public class App {
     public static int[] save = new int[5];
     public static File saveFile;
-    public static void main(String args[]) throws InterruptedException {
+    public static void main(String args[]) throws InterruptedException, IOException {
         System.out.println("Welcome to Adventure-Game\n================================================================");
         System.out.println("""   
    ____                     
@@ -72,7 +72,7 @@ public class App {
         System.out.println(input);
         return scan.nextLine();
     }
-    public static void loadSave(int a, int d, int h, int s, int l) {
+    public static void loadSave(int a, int d, int h, int s, int l) throws InterruptedException, IOException {
         character n = new character(a, d, h, s);
         switch(l) {
             case 0:
@@ -83,11 +83,12 @@ public class App {
                 }
                 break;
             case 1:
+            n.quest();
             break;
         }
     }
     // write in the file.
-    public static void save(int a, int d, int h, int s, int l) {
+    public static void save(int a, int d, int h, int s, int l) throws IOException {
         FileWriter writer = new FileWriter(saveFile);
         writer.write(a + "\n" + d + "\n" + h +"\n" + "s" + "\n" + l);
         writer.close();

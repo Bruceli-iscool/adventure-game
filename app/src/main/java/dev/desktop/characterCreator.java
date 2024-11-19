@@ -1,4 +1,7 @@
 package dev.desktop;
+
+import java.io.IOException;
+
 class characterCreator {
     int attack, defence, health, stanima;
     public characterCreator() {
@@ -71,7 +74,7 @@ class characterCreator {
                            Your stats are: 
                            attack: """ + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stanima);
     }
-    public void create() throws InterruptedException {
+    public void create() throws InterruptedException, IOException {
         character c = new character(attack, defence, health, stanima);
         c.start();
     }
