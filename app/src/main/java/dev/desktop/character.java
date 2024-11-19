@@ -102,7 +102,7 @@ class character {
                 o.turn();
             } else {
                 defence = o.attack() - defence;
-                health = health-defence+stamina;
+                health = health-defence+Math.round(stamina/2);
                 o.turn();
                 continue;
             } 
