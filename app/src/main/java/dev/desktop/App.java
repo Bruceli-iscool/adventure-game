@@ -3,7 +3,8 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-// note: add save/load system
+import java.io.FileWriter;
+
 public class App {
     public static int[] save = new int[5];
     public static File saveFile;
@@ -87,6 +88,8 @@ public class App {
     }
     // write in the file.
     public static void save(int a, int d, int h, int s, int l) {
-
+        FileWriter writer = new FileWriter(saveFile);
+        writer.write(a + "\n" + d + "\n" + h +"\n" + "s" + "\n" + l);
+        writer.close();
     }
 }

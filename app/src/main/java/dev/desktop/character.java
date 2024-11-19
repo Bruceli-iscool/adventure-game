@@ -105,6 +105,11 @@ class character {
 
     }
     System.out.println("You killed the Orc Champion!");    
-    
+    App.save(attack, defence, health, stamina);
+    quest();
+}
+public void quest() throws InterruptedException {
+    //todo
+    System.out.println(">");
 }
 }
