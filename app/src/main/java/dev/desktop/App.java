@@ -58,6 +58,7 @@ public class App {
                 loadSave(save[0], save[1], save[2], save[3], save[4]);
             }
         } else {
+            saveFile = new File("game.sav");
             String ans = ask("Create a new character? Y, n");
             if ("Y".equals(ans.strip())) {
                 @SuppressWarnings("unused")
@@ -89,8 +90,13 @@ public class App {
     }
     // write in the file.
     public static void save(int a, int d, int h, int s, int l) throws IOException {
+        try {
         FileWriter writer = new FileWriter(saveFile);
-        writer.write(a + "\n" + d + "\n" + h +"\n" + "s" + "\n" + l);
-        writer.close();
+        writer.write(a + "\n" + d + "\n" + h +"\n" + s + "\n" + l);
+        writer.close();} catch(IOException io) {
+            File g = new File("game.sav");
+            g.createNewFile();
+            save(a, d, h,s,l);
+        }
     }
 }

@@ -106,15 +106,44 @@ class character {
                 o.turn();
                 continue;
             } 
-            health = health-o.attack();
+            health = health-o.attack()+Math.round(stamina/2);
 
     }
     System.out.println("You killed the Orc Champion!");    
+    System.out.println("""
+        Your stats are: 
+        attack: """ + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
+    Thread.sleep(1000);
     App.save(attack, defence, health, stamina, 1);
     quest();
 }
 public void quest() throws InterruptedException {
     //todo
-    System.out.println(">");
+    System.out.println("So it all begins, the emperor says, you must travel north and defeat the Demon King!");
+    Thread.sleep(1500);
+    System.out.println("""
+        _.---****-.       
+._   .-'           /|`.     
+ .'             / |  `.   
+  V              (  ;    |  
+  L       _.-  -. `'      |
+ / `-. _.'                ;
+:            __   ;    _   |
+:`-.___.+-*"': `  ;  .' `. |
+|`-/     `--*'   /  /  /`. |
+: :                  :`.| ;
+| |   .           ;/ .' ' / 
+: :  / `             :__.'  
+ `._.-'       /     |      
+  : )         :      ;      
+  :----.._    |     /       
+ : .-.    `.       /        
+  |     `._       /         
+  /`-            /          
+ :             .'           
+  | )       .-'             
+   `-----*"'  THE DEVIL KING !!! 
+   credit: [bug] @ asciiart.eu
+    """);   
 }
 }
