@@ -118,7 +118,6 @@ class character {
     quest();
 }
 public void quest() throws InterruptedException {
-    //todo
     System.out.println("So it all begins, the emperor says, you must travel north and defeat the Demon King!");
     Thread.sleep(1500);
     System.out.println("""
@@ -146,6 +145,7 @@ public void quest() throws InterruptedException {
    credit: [bug] @ asciiart.eu
     """);   
     Thread.sleep(1500);
-    System.out.println("");
+    System.out.println("He has terrorized our lands! You must also finish him fast as his presence lurks among us");
+    // todo finish story
 }
 }
