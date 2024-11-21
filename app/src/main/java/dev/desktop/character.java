@@ -145,5 +145,7 @@ public void quest() throws InterruptedException {
    `-----*"'  THE DEVIL KING !!! 
    credit: [bug] @ asciiart.eu
     """);   
+    Thread.sleep(1500);
+    System.out.println("");
 }
 }
