@@ -10,7 +10,7 @@ public class App {
     public static File saveFile;
     public static void main(String args[]) throws InterruptedException, IOException {
         System.out.println("Welcome to Adventure-Game\n================================================================");
-        System.out.println("""   
+        System.out.println("""       
    ____                     
   / ___| __ _ _ __ ___   ___ 
 | |  _ / _` | '_ ` _ | / _ |    Adventure game
