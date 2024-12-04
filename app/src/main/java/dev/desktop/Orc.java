@@ -1,5 +1,7 @@
 package dev.desktop;
 
+import java.util.Random;
+
 // code for the orc enemy
 public class Orc {
     int health;
@@ -28,10 +30,18 @@ public class Orc {
         health += 1;
     }
     public int attack() {
-        return attack;
+        Random n = new Random();
+        int c = n.nextInt(3);
+        if (c != 0) {
+        return attack;}
+        else {
+            return 0;
+        }
     }
     public int health() {
         return health;
     }
-
+    public void printStats() {
+        System.out.println("Orcs health: " + health);
+    }
 }
