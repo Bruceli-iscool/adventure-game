@@ -60,10 +60,11 @@ class character {
         attack: """ + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
     Thread.sleep(1000);
     App.save(attack, defence, health, stamina, 1);
-    quest();
+    quest1();
 }
-public void quest() throws InterruptedException {
-    System.out.println("=========================================================Area 1====================================================================");
-
+public void quest1() throws InterruptedException {
+    System.out.println("=========================================================\nArea 1\n====================================================================");
+    // todo finish area 1 enemies and choices
+    System.out.println("You enter a cave. There is two paths. 1 to go left, ");
 }
 }

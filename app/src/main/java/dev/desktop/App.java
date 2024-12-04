@@ -84,7 +84,7 @@ public class App {
                 }
                 break;
             case 1:
-            n.quest();
+            n.quest1();
             break;
         }
     }
