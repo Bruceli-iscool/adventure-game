@@ -2,7 +2,7 @@ package dev.desktop;
 
 import java.io.IOException;
 import java.util.Random;
-
+// todo story
 class character {
     int attack, defence, health, stamina;
 
