@@ -27,7 +27,8 @@ public class Orc {
         
     }
     public void turn() {
-        health += 1;
+        if (health >0 ) {
+        health += 1;}
     }
     public int attack() {
         Random n = new Random();

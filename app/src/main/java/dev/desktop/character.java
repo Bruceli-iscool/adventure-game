@@ -16,9 +16,12 @@ class character {
     public void start() throws InterruptedException, IOException {
         App.save(attack, defence, health, stamina, 0);
         System.out.println(
-                "=============================================================================\nPrologue\n===============================================================================");
+                "=============================================================================\nTutorial\n===============================================================================");
         Thread.sleep(100);
         Thread.sleep(100); 
+        System.out.println("Welcome to the tutorial. Adevnture-game is a game where you clear areas. \nThis Tutorial will help you kill your first enemy.");
+        Thread.sleep(1500);
+        System.out.println("Your first enemy is an Orc. He has 10 health.\n");
         Orc o = new Orc(10, 1, 4, 5);
         while (o.health > 0 && health > 0){
             System.out.println("""
@@ -49,7 +52,9 @@ class character {
         System.out.println("Game Over!");
         System.exit(0);
     }
-    System.out.println("You killed the Orc!");    
+    System.out.println("You killed the Orc! You will now move on to the next area! Heres your reward of 1 stamina.");
+    Thread.sleep(1000);
+    stamina += 1;    
     System.out.println("""
         Your stats are: 
         attack: """ + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
@@ -58,7 +63,7 @@ class character {
     quest();
 }
 public void quest() throws InterruptedException {
-    System.out.println("=========================================================Chapter 1====================================================================");
+    System.out.println("=========================================================Area 1====================================================================");
 
 }
 }

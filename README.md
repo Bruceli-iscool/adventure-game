@@ -1,2 +1,2 @@
 # Adventure-Game
-A high-fantasy adventure game written in java
+A dungeon crawler/adventure game written in java
