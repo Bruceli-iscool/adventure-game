@@ -52,7 +52,7 @@ class character {
         System.out.println("Game Over!");
         System.exit(0);
     }
-    System.out.println("You killed the Orc! You will now move on to the next area! Heres your reward of 1 stamina.");
+    System.out.println("You killed the Orc! You will now move on to the next area! Here is your reward of 1 stamina.");
     Thread.sleep(1000);
     stamina += 1;    
     System.out.println("""
@@ -65,6 +65,13 @@ class character {
 public void quest1() throws InterruptedException {
     System.out.println("=========================================================\nArea 1\n====================================================================");
     // todo finish area 1 enemies and choices
-    System.out.println("You enter a cave. There is two paths. 1 to go left, ");
+    System.out.println("You enter a cave. There is two paths. 1 to go left, 2 to go right.");
+    String k = App.ask(">");
+    //noinspection StatementWithEmptyBody
+    if ("1".equals(k)) {
+        // todo
+    } else {
+        //todo
+    }
 }
 }
