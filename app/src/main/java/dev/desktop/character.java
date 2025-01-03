@@ -19,7 +19,7 @@ class character {
                 "=============================================================================\nTutorial\n===============================================================================");
         Thread.sleep(100);
         Thread.sleep(100); 
-        System.out.println("Welcome to the tutorial. Adevnture-game is a game where you clear areas. \nThis Tutorial will help you kill your first enemy.");
+        System.out.println("Welcome to the tutorial. Adventure-game is a game where you clear areas. \nThis Tutorial will help you kill your first enemy.");
         Thread.sleep(1500);
         System.out.println("Your first enemy is an Orc. He has 10 health.\n");
         Orc o = new Orc(10, 1, 4, 5);
@@ -69,7 +69,9 @@ public void quest1() throws InterruptedException {
     String k = App.ask(">");
     //noinspection StatementWithEmptyBody
     if ("1".equals(k)) {
-        // todo
+        System.out.println("You travel down the left side of the cave and encounter two doors.");
+        k = App.ask("1 to go through the first door, 2 to go through the second door.\n>");
+
     } else {
         //todo
     }

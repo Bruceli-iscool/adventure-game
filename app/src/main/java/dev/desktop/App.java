@@ -23,7 +23,7 @@ public class App {
         if ("1".equals(ns)) {
             // implement load
             Thread.sleep(100);
-            System.out.println("1 to use default save file, 2 to load a custon savefile");
+            System.out.println("1 to use default save file, 2 to load a custom save file");
             ns = ask(">");
             if ("1".equals(ns)) {
                 saveFile = new File("game.sav");
