@@ -102,8 +102,9 @@ boolean checkHealth(int health) {
             return true;
         }
 }
-void death() {
-
+void death() throws InterruptedException {
+    System.out.println("You Died!");
+    Thread.sleep(500);
 }
 }
 
