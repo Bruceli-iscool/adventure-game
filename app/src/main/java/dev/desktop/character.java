@@ -69,11 +69,41 @@ public void quest1() throws InterruptedException {
     String k = App.ask(">");
     //noinspection StatementWithEmptyBody
     if ("1".equals(k)) {
+        Thread.sleep(500);
         System.out.println("You travel down the left side of the cave and encounter two doors.");
         k = App.ask("1 to go through the first door, 2 to go through the second door.\n>");
+        if ("1".equals(k)) {
+            System.out.println("You find a health potion!");
+            Thread.sleep(500);
+            System.out.println("You received 1 health");
+            health += 1;
+            Thread.sleep(500);
+            System.out.println("You leave the room.");
+        } else {
+            System.out.println("You fall into a pit with venom snakes!");
+            Thread.sleep(500);
+            System.out.println("You fight them off but you lose 2 health.");
+            health -= 2;
+            if (checkHealth(health)) {
+                Thread.sleep(500);
+                System.out.println("You climb out of the pit and leave the room.");
+            } else {
 
+            }
+        }
     } else {
         //todo
     }
 }
+boolean checkHealth(int health) {
+        if (health < 1) {
+            return false;
+        } else {
+            return true;
+        }
 }
+void death() {
+
+}
+}
+
