@@ -49,8 +49,7 @@ class character {
 
     }
     if (health < 1) {
-        System.out.println("Game Over!");
-        System.exit(0);
+        death();
     }
     System.out.println("You killed the Orc! You will now move on to the next area! Here is your reward of 1 stamina.");
     Thread.sleep(1000);
@@ -88,7 +87,7 @@ public void quest1() throws InterruptedException {
                 Thread.sleep(500);
                 System.out.println("You climb out of the pit and leave the room.");
             } else {
-
+                death();
             }
         }
     } else {
@@ -105,6 +104,8 @@ boolean checkHealth(int health) {
 void death() throws InterruptedException {
     System.out.println("You Died!");
     Thread.sleep(500);
+    // todo
+    System.exit(0);
 }
 }
 
