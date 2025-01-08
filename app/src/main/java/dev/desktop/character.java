@@ -86,9 +86,11 @@ public void quest1() throws InterruptedException {
             if (checkHealth(health)) {
                 Thread.sleep(500);
                 System.out.println("You climb out of the pit and leave the room.");
+                
             } else {
                 death();
             }
+            
         }
     } else {
         //todo
