@@ -90,7 +90,6 @@ public void quest1() throws InterruptedException {
             } else {
                 death();
             }
-            
         }
     } else {
         //todo
