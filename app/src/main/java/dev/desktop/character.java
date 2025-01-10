@@ -61,7 +61,7 @@ class character {
     App.save(attack, defence, health, stamina, 1);
     quest1();
 }
-public void quest1() throws InterruptedException {
+public void quest1() throws InterruptedException, IOException {
     System.out.println("=========================================================\nArea 1\n====================================================================");
     // todo finish area 1 enemies and choices
     System.out.println("You enter a cave. There is two paths. 1 to go left, 2 to go right.");
@@ -109,8 +109,8 @@ public void quest1() throws InterruptedException {
                     System.out.println("1 to attack, 2 to block.");
                     String n = App.ask(">");
                     if (n.equals("1")) {
-                        Random k = new Random();
-                        int c = k.nextInt(4);
+                        Random g = new Random();
+                        int c = g.nextInt(4);
                         if (c== 0) {
                             System.out.println("Your attack failed!");
                         } else {
