@@ -90,10 +90,59 @@ public void quest1() throws InterruptedException {
             } else {
                 death();
             }
+            System.out.println("You continue down the cave.");
+            Thread.sleep(500);
+            k = App.ask("You encounter a split in the path again. 1 to go left, 2 to go right.\n>");
+            if ("1".equals(k)) {
+                System.out.println("You continue down the left path and leave the cave.");
+                App.save(attack, defence, health, stamina, 2);
+                Thread.sleep(500);
+                System.out.println("You have completed the first quest!");
+                quest2();
+            } else {
+                System.out.println("You continue down the right path and encounter another Orc!");
+                Orc o = new Orc(10, 1, 4, 5);
+                while (o.health > 0 && health > 0){
+                    System.out.println("""
+                        Your stats are: 
+                        attack: """ + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
+                    System.out.println("1 to attack, 2 to block.");
+                    String n = App.ask(">");
+                    if (n.equals("1")) {
+                        Random k = new Random();
+                        int c = k.nextInt(4);
+                        if (c== 0) {
+                            System.out.println("Your attack failed!");
+                        } else {
+                        o.attacked(attack);
+                        o.printStats();
+                        o.turn();}
+                    } else {
+                        defence = o.attack() - defence;
+                        health = health-defence+Math.round(stamina/2);
+                        o.turn();
+                        continue;
+                    } 
+                    health = health-o.attack()+Math.round(stamina/2);
+        
+        
+            }
+            if (health < 1) {
+                death();
+            }
+            System.out.println("You killed the Orc! You continue down the path and exit the cave.");
+            App.save(attack, defence, health, stamina, 2);
+            Thread.sleep(500);
+            System.out.println("You have completed the first quest!");
+            quest2();
+            }
         }
     } else {
         //todo
     }
+}
+public void quest2() {
+    // todo
 }
 boolean checkHealth(int health) {
         if (health < 1) {
