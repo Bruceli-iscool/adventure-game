@@ -138,7 +138,14 @@ public void quest1() throws InterruptedException, IOException {
             }
         }
     } else {
-        //todo
+        System.out.println("You move to the right side of the cave and continue down the path.");
+        Thread.sleep(500);
+        k = App.ask("You path is blocked by a door. 1 to sneak in, 2 to knock it down.");
+        if ("1".equals(k)) {
+            System.out.println();
+        } else {
+
+        }
     }
 }
 public void quest2() {
