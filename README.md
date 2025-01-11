@@ -1,6 +1,6 @@
-![gradle](https://github.com/Bruceli-iscool/adventure-game/actions/workflows/gradle.yml/badge.svg)
+![gradle](https://github.com/Bruceli-iscool/adventure-game/actions/workflows/gradle.yml/badge.svg) ![code](https://github.com/Bruceli-iscool/adventure-game/actions/workflows/codeql.yml/badge.svg)
 # Adventure-Game
-A dungeon crawler/adventure game written in java
+A dungeon crawler/adventure game written in java 
 
 # Building the Game
 Make sure you have Gradle and Java 22 or above installed. Clone the repo and run `gradle build` in the project directory. Go and find the zip or tar in the `app/build/distributions`. Unzip and run. 

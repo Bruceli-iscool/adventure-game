@@ -153,8 +153,37 @@ public void quest1() throws InterruptedException, IOException {
             }
         } else {
             System.out.println("You knock down the door and encounter an Orc!");
+            Orc o = new Orc(10, 1, 4, 5);
+            while (o.health > 0 && health > 0){
+                System.out.println("""
+                    Your stats are: 
+                    attack: """ + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
+                System.out.println("1 to attack, 2 to block.");
+                String n = App.ask(">");
+                if (n.equals("1")) {
+                    Random g = new Random();
+                    int c = g.nextInt(4);
+                    if (c== 0) {
+                        System.out.println("Your attack failed!");
+                    } else {
+                    o.attacked(attack);
+                    o.printStats();
+                    o.turn();}
+                } else {
+                    defence = o.attack() - defence;
+                    health = health-defence+Math.round(stamina/2);
+                    o.turn();
+                    continue;
+                } 
+                health = health-o.attack()+Math.round(stamina/2);
+    
+    
         }
-    }
+        if (health < 1) {
+            death();
+        }
+        System.out.println("You killed the Orc! You continue down the path and exit the cave.");
+        }}
 }
 public void quest2() {
     // todo
