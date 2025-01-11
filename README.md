@@ -1,3 +1,4 @@
+[![wakatime](https://wakatime.com/badge/github/Bruceli-iscool/adventure-game.svg)](https://wakatime.com/badge/github/Bruceli-iscool/adventure-game)
 # Adventure-Game
 A dungeon crawler/adventure game written in java
 
