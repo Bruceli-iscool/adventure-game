@@ -147,10 +147,12 @@ public void quest1() throws InterruptedException, IOException {
             Thread.sleep(500);
             k = App.ask("1 to exit the room, 2 to silently kill the orc.");
             if ("1".equals(k)) {
-
+                System.out.println("You sneak out of the room and continue down the path.");
+            } else {
+                System.out.println("You kill the orc and continue down the path.");
             }
         } else {
-
+            System.out.println("You knock down the door and encounter an Orc!");
         }
     }
 }
