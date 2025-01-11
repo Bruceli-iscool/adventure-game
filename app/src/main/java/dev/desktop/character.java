@@ -142,7 +142,12 @@ public void quest1() throws InterruptedException, IOException {
         Thread.sleep(500);
         k = App.ask("You path is blocked by a door. 1 to sneak in, 2 to knock it down.");
         if ("1".equals(k)) {
-            System.out.println();
+            System.out.println("You see a orc, but he does not see you.");
+            Thread.sleep(500);
+            k = App.ask("1 to exit the room, 2 to silently kill the orc.");
+            if ("1".equals(k)) {
+                
+            }
         } else {
 
         }
