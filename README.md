@@ -1,4 +1,4 @@
-![gradle](https://github.com/Bruceli-iscool/adventure-game/actions/workflows/gradle.yml/badge.svg) ![code](https://github.com/Bruceli-iscool/adventure-game/actions/workflows/codeql.yml/badge.svg)
+![gradle](https://github.com/Bruceli-iscool/adventure-game/actions/workflows/gradle.yml/badge.svg) ![code](https://github.com/Bruceli-iscool/adventure-game/actions/workflows/codeql.yml/badge.svg?branch=master&event=push)
 # Adventure-Game
 A dungeon crawler/adventure game written in java 
 
