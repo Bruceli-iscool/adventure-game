@@ -1,3 +1,4 @@
+![gradle](https://github.com/Bruceli-iscool/adventure-game/actions/workflows/gradle.yml/badge.svg)
 # Adventure-Game
 A dungeon crawler/adventure game written in java
 
