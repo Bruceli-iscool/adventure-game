@@ -183,6 +183,8 @@ public void quest1() throws InterruptedException, IOException {
             death();
         }
         System.out.println("You killed the Orc! You continue down the path and exit the cave.");
+        App.save(attack, defence, health, stamina, 2);
+        quest2();
         }}
 }
 public void quest2() {
