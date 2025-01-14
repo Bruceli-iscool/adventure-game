@@ -3,4 +3,7 @@
 A dungeon crawler/adventure game written in java 
 
 # Building the Game
-Make sure you have Gradle and Java 21 or above installed. Clone the repo and run `gradle build` in the project directory. Go and find the zip or tar in the `app/build/distributions`. Unzip and run. 
+Make sure you have Gradle and Java 21 or above installed.
+Clone the repo and run `gradle build` in the project directory.
+Go and find the zip or tar in the `app/build/distributions`.
+Unzip and run. 
