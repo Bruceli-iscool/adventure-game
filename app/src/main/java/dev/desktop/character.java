@@ -210,12 +210,59 @@ public void quest2() throws InterruptedException, IOException {
     }
 public void quest3() throws InterruptedException{
      // cave of death
+    shop();
+    
 }
 public void quest4() throws InterruptedException{
     // bandits lair
 }
 boolean checkHealth(int health) {
     return health >= 1;
+}
+void shop() throws InterruptedException {
+     // opens a shop
+    System.out.println("Welcome to the shop!");
+    Thread.sleep(500);
+    System.out.println("1 for a health potion (cost 20 gold) (+ 5 health)\n2 for potion of minor healing (10 gold) (+ 2 health)\n3 for a set of Orc armor (200 gold) (+ 5 defence)\n4 for an Imperial Sword (200 gold) (+ 3 attack)\n5 for Imperial armor (300 gold) (+ 7 defence)\n6 to exit the shop");
+    String k = App.ask(">");
+    if (1 == Integer.parseInt(k)) {
+        if (gold >= 20) {
+            health += 5;
+            gold -= 20;
+        } else {
+            System.out.println("You do not have enough gold.");
+        }
+    } else if (2 == Integer.parseInt(k)) {
+        if (gold >= 10) {
+            health += 2;
+            gold -= 10;
+        } else {
+            System.out.println("You do not have enough gold.");
+        }
+    } else if (3 == Integer.parseInt(k)) {
+        if (gold >= 200) {
+            defence += 5;
+            gold -= 200;
+        } else {
+            System.out.println("You do not have enough gold.");
+        }
+    } else if (4 == Integer.parseInt(k)) {
+        if (gold >= 200) {
+            attack += 3;
+            gold -= 200;
+        } else {
+            System.out.println("You do not have enough gold.");
+        }
+    } else if (5 == Integer.parseInt(k)) {
+        if (gold >= 300) {
+            defence += 7;
+            gold -= 300;
+        } else {
+            System.out.println("You do not have enough gold.");
+        }
+    } else {
+        return;
+    }
 }
 void death() throws InterruptedException {
     System.out.println("You Died!");
