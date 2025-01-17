@@ -211,11 +211,50 @@ public void quest2() throws InterruptedException, IOException {
 public void quest3() throws InterruptedException{
      // cave of death
     shop();
-    
+    System.out.println("=========================================================\nArea 3\n====================================================================");
+    System.out.println("You enter the Cave of Death. Suddenly, a bandit jumps out and attacks you! (-2 health)");
+    health -= 2;
+    if (health < 1) {
+        death();
+    }
+    Bandit o = new Bandit(7, 3, 6, 3);
+    while (o.health > 0 && health > 0){
+        System.out.println("""
+                Your stats are:\s
+                attack:\s""" + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
+        System.out.println("1 to attack, 2 to block.");
+        String n = App.ask(">");
+        if (n.equals("1")) {
+            Random s = new Random();
+            int c = s.nextInt(4);
+            if (c== 0) {
+                System.out.println("Your attack failed!");
+            } else {
+                o.health = o.health - attack;
+                o.printStats();
+                o.turn();}
+        } else {
+            defence = o.attack() - defence;
+            health = (health-defence)+Math.round(stamina/2);
+            o.turn();
+            continue;
+        }
+        health = (health-o.attack())+Math.round(stamina/2);
+        health = health -defence;
+
+    }
+    if (health < 1) {
+        death();
+    }
+    System.out.println("You defeated the bandit! You continue down the path.");
+    Thread.sleep(500);
 }
 public void quest4() throws InterruptedException{
     // bandits lair
+    shop();
+    // todo
 }
+
 boolean checkHealth(int health) {
     return health >= 1;
 }
