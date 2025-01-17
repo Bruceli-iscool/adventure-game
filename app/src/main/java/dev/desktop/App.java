@@ -55,7 +55,7 @@ public class App {
                 } catch (FileNotFoundException e) {
                     System.out.println("No save file with this name found found. Please use a different file.");
                 }
-                loadSave(save[0], save[1], save[2], save[3], save[4]);
+                loadSave(save[0], save[1], save[2], save[3], save[4], save[5]);
             }
         } else {
             saveFile = new File("game.sav");
@@ -73,8 +73,8 @@ public class App {
         System.out.println(input);
         return scan.nextLine();
     }
-    public static void loadSave(int a, int d, int h, int s, int l) throws InterruptedException, IOException {
-        character n = new character(a, d, h, s);
+    public static void loadSave(int a, int d, int h, int s, int l, int g) throws InterruptedException, IOException {
+        character n = new character(a, d, h, s, g);
         switch(l) {
             case 0:
                 try {
@@ -86,17 +86,26 @@ public class App {
             case 1:
             n.quest1();
             break;
+            case 2:
+            n.quest2();
+            break;
+            case 3:
+            n.quest3();
+            break;
+            case 4:
+            n.quest4();
+            break;
         }
     }
     // write in the file.
-    public static void save(int a, int d, int h, int s, int l) throws IOException {
+    public static void save(int a, int d, int h, int s, int l, int g) throws IOException {
         try {
         FileWriter writer = new FileWriter(saveFile);
-        writer.write(a + "\n" + d + "\n" + h +"\n" + s + "\n" + l);
+        writer.write(a + "\n" + d + "\n" + h +"\n" + s + "\n" + l+"\n"+g);
         writer.close();} catch(IOException io) {
-            File g = new File("game.sav");
-            g.createNewFile();
-            save(a, d, h,s,l);
+            File c = new File("game.sav");
+            c.createNewFile();
+            save(a, d, h,s,l,g);
         }
     }
 }

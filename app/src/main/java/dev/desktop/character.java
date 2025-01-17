@@ -4,17 +4,18 @@ import java.io.IOException;
 import java.util.Random;
 // todo story
 class character {
-    int attack, defence, health, stamina;
+    int attack, defence, health, stamina, gold;
 
-    public character(int a, int d, int h, int s) {
+    public character(int a, int d, int h, int s, int g) {
         attack = a;
         defence = d;
         health = h;
         stamina = s;
+        gold = g;
     }
 
     public void start() throws InterruptedException, IOException {
-        App.save(attack, defence, health, stamina, 0);
+        App.save(attack, defence, health, stamina, 0, 0);
         System.out.println(
                 "=============================================================================\nTutorial\n===============================================================================");
         Thread.sleep(100);
@@ -58,7 +59,7 @@ class character {
         Your stats are: 
         attack: """ + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
     Thread.sleep(1000);
-    App.save(attack, defence, health, stamina, 1);
+    App.save(attack, defence, health, stamina, 1, 0);
     quest1();
 }
 public void quest1() throws InterruptedException, IOException {
@@ -96,7 +97,7 @@ public void quest1() throws InterruptedException, IOException {
         k = App.ask("You encounter a split in the path again. 1 to go left, 2 to go right.\n>");
         if ("1".equals(k)) {
             System.out.println("You continue down the left path and leave the cave.");
-            App.save(attack, defence, health, stamina, 2);
+            App.save(attack, defence, health, stamina, 2, 0);
             Thread.sleep(500);
             System.out.println("You have completed the first quest!");
             quest2();
@@ -132,7 +133,7 @@ public void quest1() throws InterruptedException, IOException {
                 death();
             }
         System.out.println("You killed the Orc! You continue down the path and exit the cave.");
-        App.save(attack, defence, health, stamina, 2);
+        App.save(attack, defence, health, stamina, 2, 0);
         Thread.sleep(500);
         System.out.println("You have completed the first quest!");
         quest2();
@@ -149,7 +150,7 @@ public void quest1() throws InterruptedException, IOException {
                 System.out.println("You sneak out of the room and continue down the path.");
             } else {
                 System.out.println("You kill the orc and continue down the path and exit the cave.");
-                App.save(attack, defence, health, stamina, 2);
+                App.save(attack, defence, health, stamina, 2, 0);
                 quest2();
             }
         } else {
@@ -157,8 +158,8 @@ public void quest1() throws InterruptedException, IOException {
             Orc o = new Orc(12, 1, 4, 5);
             while (o.health > 0 && health > 0){
                 System.out.println("""
-                Your stats are: 
-                attack: """ + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
+                Your stats are:\s
+                attack:\s""" + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
                 System.out.println("1 to attack, 2 to block.");
                 String n = App.ask(">");
                 if (n.equals("1")) {
@@ -184,25 +185,43 @@ public void quest1() throws InterruptedException, IOException {
                 death();
             }
         System.out.println("You killed the Orc! You continue down the path and exit the cave.");
-        App.save(attack, defence, health, stamina, 2);
+        App.save(attack, defence, health, stamina, 2, 0);
         quest2();
         }}
 }
-public void quest2() {
-    // todo
+public void quest2() throws InterruptedException, IOException {
+    System.out.println("=========================================================\nArea 2\n====================================================================");
+    System.out.println("Congratulations! You unlocked the shop!");
+    System.out.println("You can access the shop at the start of the quest.");
+    Thread.sleep(1000);
+    System.out.println("Here is 20 gold to get started!");
+    gold = 20;
+    System.out.println("Now you can choose which quest to go on.");
+    Thread.sleep(500);
+    System.out.println("1 to go to Cave of Death (reward 50 gold), 2 to go to the Bandits Lair (reward 20 gold)");
+    String k = App.ask(">");
+    if ("1".equals(k)) {
+        quest3();
+        App.save(attack, defence, health, stamina, 3, gold);
+    }else {
+        quest4();
+        App.save(attack, defence, health, stamina, 4, gold);
+    }
+    }
+public void quest3() throws InterruptedException{
+     // cave of death
+}
+public void quest4() throws InterruptedException{
+    // bandits lair
 }
 boolean checkHealth(int health) {
-        if (health < 1) {
-            return false;
-        } else {
-            return true;
-        }
+    return health >= 1;
 }
 void death() throws InterruptedException {
     System.out.println("You Died!");
     System.out.println("""
-                Your stats were: 
-                attack: """ + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
+                Your stats were:\s
+                attack:\s""" + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
     Thread.sleep(500);
     System.exit(0);
 }
