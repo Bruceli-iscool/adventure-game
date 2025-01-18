@@ -8,13 +8,15 @@ public class Enemy {
     int stamina;
     int attack;
     int defence;
-    boolean turn = true;
     public Enemy(int h, int s, int a, int d) {
         health = h;
         stamina = s;
         attack = a;
         defence = d;
 
+    }
+    int attack() {
+       return attack;
     }
 
 }
