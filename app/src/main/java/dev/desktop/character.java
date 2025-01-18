@@ -23,35 +23,8 @@ class character {
         System.out.println("Welcome to the tutorial. Adventure-game is a game where you clear areas. \nThis Tutorial will help you kill your first enemy.");
         Thread.sleep(1500);
         System.out.println("Your first enemy is an Orc. He has 10 health.\n");
-        Orc o = new Orc(10, 1, 4, 5);
-        while (o.health > 0 && health > 0){
-            System.out.println("""
-                Your stats are: 
-                attack: """ + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
-            System.out.println("1 to attack, 2 to block.");
-            String n = App.ask(">");
-            if (n.equals("1")) {
-                Random k = new Random();
-                int c = k.nextInt(4);
-                if (c== 0) {
-                    System.out.println("Your attack failed!");
-                } else {
-                o.health = o.health - attack;
-                o.printStats();
-                o.turn();}
-            } else {
-                defence = o.attack() - defence;
-                health = (health-defence)+Math.round(stamina/2);
-                o.turn();
-                continue;
-            } 
-            health = (health-o.attack())+Math.round(stamina/2);
-            health = health -defence;
+// combat
 
-    }
-    if (health < 1) {
-        death();
-    }
     System.out.println("You killed the Orc! You will now move on to the next area! Here is your reward of 1 stamina.");
     Thread.sleep(1000);
     stamina += 1;    
@@ -103,35 +76,7 @@ public void quest1() throws InterruptedException, IOException {
             quest2();
         } else {
             System.out.println("You continue down the right path and encounter another Orc!");
-            Orc o = new Orc(12, 1, 4, 5);
-            while (o.health > 0 && health > 0){
-                System.out.println("""
-                Your stats are: 
-                attack: """ + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
-                System.out.println("1 to attack, 2 to block.");
-                String n = App.ask(">");
-                if (n.equals("1")) {
-                    Random s = new Random();
-                    int c = s.nextInt(4);
-                    if (c== 0) {
-                        System.out.println("Your attack failed!");
-                    } else {
-                        o.health = o.health - attack;
-                        o.printStats();
-                        o.turn();}
-                } else {
-                    defence = o.attack() - defence;
-                    health = (health-defence)+Math.round(stamina/2);
-                    o.turn();
-                    continue;
-                }
-                health = (health-o.attack())+Math.round(stamina/2);
-                health = health -defence;
-
-            }
-            if (health < 1) {
-                death();
-            }
+//combat
         System.out.println("You killed the Orc! You continue down the path and exit the cave.");
         App.save(attack, defence, health, stamina, 2, 0);
         Thread.sleep(500);
@@ -155,41 +100,16 @@ public void quest1() throws InterruptedException, IOException {
             }
         } else {
             System.out.println("You knock down the door and encounter an Orc!");
-            Orc o = new Orc(12, 1, 4, 5);
-            while (o.health > 0 && health > 0){
-                System.out.println("""
-                Your stats are:\s
-                attack:\s""" + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
-                System.out.println("1 to attack, 2 to block.");
-                String n = App.ask(">");
-                if (n.equals("1")) {
-                    Random s = new Random();
-                    int c = s.nextInt(4);
-                    if (c== 0) {
-                        System.out.println("Your attack failed!");
-                    } else {
-                        o.health = o.health - attack;
-                        o.printStats();
-                        o.turn();}
-                } else {
-                    defence = o.attack() - defence;
-                    health = (health-defence)+Math.round(stamina/2);
-                    o.turn();
-                    continue;
-                }
-                health = (health-o.attack())+Math.round(stamina/2);
-                health = health -defence;
-
-            }
-            if (health < 1) {
-                death();
-            }
+//combat
         System.out.println("You killed the Orc! You continue down the path and exit the cave.");
         App.save(attack, defence, health, stamina, 2, 0);
         quest2();
         }}
 }
 public void quest2() throws InterruptedException, IOException {
+    System.out.println("""
+                Your stats were:\s
+                attack:\s""" + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
     System.out.println("=========================================================\nArea 2\n====================================================================");
     System.out.println("Congratulations! You unlocked the shop!");
     System.out.println("You can access the shop at the start of the quest.");
@@ -210,6 +130,7 @@ public void quest2() throws InterruptedException, IOException {
     }
 public void quest3() throws InterruptedException{
      // cave of death
+
     shop();
     System.out.println("=========================================================\nArea 3\n====================================================================");
     System.out.println("You enter the Cave of Death. Suddenly, a bandit jumps out and attacks you! (-2 health)");
@@ -217,35 +138,7 @@ public void quest3() throws InterruptedException{
     if (health < 1) {
         death();
     }
-    Bandit o = new Bandit(7, 3, 6, 3);
-    while (o.health > 0 && health > 0){
-        System.out.println("""
-                Your stats are:\s
-                attack:\s""" + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
-        System.out.println("1 to attack, 2 to block.");
-        String n = App.ask(">");
-        if (n.equals("1")) {
-            Random s = new Random();
-            int c = s.nextInt(4);
-            if (c== 0) {
-                System.out.println("Your attack failed!");
-            } else {
-                o.health = o.health - attack;
-                o.printStats();
-                o.turn();}
-        } else {
-            defence = o.attack() - defence;
-            health = (health-defence)+Math.round(stamina/2);
-            o.turn();
-            continue;
-        }
-        health = (health-o.attack())+Math.round(stamina/2);
-        health = health -defence;
-
-    }
-    if (health < 1) {
-        death();
-    }
+//combat
     System.out.println("You defeated the bandit! You continue down the path.");
     Thread.sleep(500);
 }
@@ -310,6 +203,9 @@ void death() throws InterruptedException {
                 attack:\s""" + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
     Thread.sleep(500);
     System.exit(0);
+}
+void combat(int a, int d, int h, int s) throws InterruptedException {
+
 }
 }
 
