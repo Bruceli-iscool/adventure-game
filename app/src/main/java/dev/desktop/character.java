@@ -24,7 +24,7 @@ class character {
         Thread.sleep(1500);
         System.out.println("Your first enemy is an Orc. He has 10 health.\n");
 // combat
-
+    combat(4, 2, 6, 2);
     System.out.println("You killed the Orc! You will now move on to the next area! Here is your reward of 1 stamina.");
     Thread.sleep(1000);
     stamina += 1;    
@@ -205,7 +205,34 @@ void death() throws InterruptedException {
     System.exit(0);
 }
 void combat(int a, int d, int h, int s) throws InterruptedException {
+        Random g = new Random();
+        Enemy e = new Enemy(h, s, a, d);
+        while (e.health > 0 && health > 0) {
+            System.out.println("Your stats are:\nattack: " + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
+            String ans = App.ask("1 to attack, 2 to block");
+            if ("1".equals(ans)) {
+                int c = g.nextInt(4);
+                if (c == 0) {
+                    System.out.println("Your attack failed!");
+                } else {
+                    e.attacked(attack);
+                }
+                health = health - e.attack();
+                health += Math.round(stamina/3);
+            } else {
+                if (defence < 0) {
+                    defence = 0;
+                }
+                health = health - (e.attack - defence);
+                health += Math.round(stamina/3);
+                defence = defence - e.attack;
+            }
+            e.stats();
+        }
+    if (health < 1) {
+        death();
+    }
+    }
 
-}
 }
 
