@@ -158,7 +158,11 @@ combat(3, 0, 4, 3);
     } else {
         Thread.sleep(500);
         System.out.println("The drawbridge does not lower and you fall into the trap. You lose 2 health.");
-       //todo
+        System.out.println("""
+            Your stats were:\s
+            attack:\s""" + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
+        Thread.sleep(500);
+        System.out.println("You climb out of the trap and continue down the path.");
         health -= 2;
         if (health < 1) {
             death();
