@@ -158,6 +158,7 @@ combat(3, 0, 4, 3);
     } else {
         Thread.sleep(500);
         System.out.println("The drawbridge does not lower and you fall into the trap. You lose 2 health.");
+       //todo
         health -= 2;
         if (health < 1) {
             death();
@@ -183,6 +184,7 @@ void shop() throws InterruptedException {
     System.out.println("=========================================================\nArea 2\n====================================================================");
     System.out.println("Welcome to the shop!");
     Thread.sleep(500);
+    System.out.println();
     System.out.println("1 for a health potion (cost 20 gold) (+ 5 health)\n2 for potion of minor healing (10 gold) (+ 2 health)\n3 for a set of Orc armor (200 gold) (+ 5 defence)\n4 for an Imperial Sword (200 gold) (+ 3 attack)\n5 for Imperial armor (300 gold) (+ 7 defence)\n6 to exit the shop");
     String k = App.ask(">");
     if (1 == Integer.parseInt(k)) {
