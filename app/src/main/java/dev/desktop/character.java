@@ -24,7 +24,7 @@ class character {
         Thread.sleep(1500);
         System.out.println("Your first enemy is an Orc. He has 10 health.\n");
 // combat
-    combat(4, 2, 6, 2);
+    combat(2, 2, 6, 2);
     System.out.println("You killed the Orc! You will now move on to the next area! Here is your reward of 1 stamina.");
     Thread.sleep(1000);
     stamina += 1;    
@@ -36,6 +36,8 @@ class character {
     quest1();
 }
 public void quest1() throws InterruptedException, IOException {
+    health += 5;
+    defence += 2;
     System.out.println("=========================================================\nArea 1\n====================================================================");
     System.out.println("You enter a cave. There is two paths. 1 to go left, 2 to go right.");
     String k = App.ask(">");
@@ -77,6 +79,7 @@ public void quest1() throws InterruptedException, IOException {
         } else {
             System.out.println("You continue down the right path and encounter another Orc!");
 //combat
+combat(3, 0, 6, 1);
         System.out.println("You killed the Orc! You continue down the path and exit the cave.");
         App.save(attack, defence, health, stamina, 2, 0);
         Thread.sleep(500);
@@ -101,6 +104,8 @@ public void quest1() throws InterruptedException, IOException {
         } else {
             System.out.println("You knock down the door and encounter an Orc!");
 //combat
+combat(3, 0, 6, 1);
+
         System.out.println("You killed the Orc! You continue down the path and exit the cave.");
         App.save(attack, defence, health, stamina, 2, 0);
         quest2();
@@ -139,8 +144,25 @@ public void quest3() throws InterruptedException{
         death();
     }
 //combat
+combat(3, 0, 4, 3);
     System.out.println("You defeated the bandit! You continue down the path.");
     Thread.sleep(500);
+    System.out.println("You travel down the cave and see trap ahead with a puzzle you must solve.");
+    Thread.sleep(500);
+    System.out.println("Eagle, Bear, Wolf, Cat statues are next to the trap. You must choose the correct option.");
+    String k = App.ask(">");
+    k.replaceAll("\\s", "");
+    if (k.equals("Wolf")) {
+        Thread.sleep(500);
+        System.out.println("The drawbridge lowers over the trap and you continue down the path.");
+    } else {
+        Thread.sleep(500);
+        System.out.println("The drawbridge does not lower and you fall into the trap. You lose 2 health.");
+        health -= 2;
+        if (health < 1) {
+            death();
+        }
+    }
 }
 public void quest4() throws InterruptedException{
     // bandits lair
@@ -153,6 +175,12 @@ boolean checkHealth(int health) {
 }
 void shop() throws InterruptedException {
      // opens a shop
+     health += 5;
+     defence += 2;
+     System.out.println("""
+                Your stats were:\s
+                attack:\s""" + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
+    System.out.println("=========================================================\nArea 2\n====================================================================");
     System.out.println("Welcome to the shop!");
     Thread.sleep(500);
     System.out.println("1 for a health potion (cost 20 gold) (+ 5 health)\n2 for potion of minor healing (10 gold) (+ 2 health)\n3 for a set of Orc armor (200 gold) (+ 5 defence)\n4 for an Imperial Sword (200 gold) (+ 3 attack)\n5 for Imperial armor (300 gold) (+ 7 defence)\n6 to exit the shop");
