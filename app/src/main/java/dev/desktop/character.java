@@ -289,14 +289,13 @@ void combat(int a, int d, int h, int s) throws InterruptedException {
             System.out.println("Your stats are:\nattack: " + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
             String ans = App.ask("1 to attack, 2 to block");
             if ("1".equals(ans)) {
-                int c = g.nextInt(4);
-                if (c == 0) {
+                int c = g.nextInt(10);
+                if (c == 7) {
                     System.out.println("Your attack failed!");
                 } else {
                     e.attacked(attack);
                 }
                 health = health - e.attack();
-                health +=  Math.round( stamina/3);
             } else {
                 if (defence < 0) {
                     defence = 0;
