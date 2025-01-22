@@ -214,9 +214,11 @@ combat(3, 0, 4, 3);
 public void quest4() throws InterruptedException{
     health += 2;
     defence += 1;
+    System.out.println("=========================================================\nQuest 4\n====================================================================");
     // bandits lair
     shop();
     // todo
+
 }
 public void quest5() throws InterruptedException{
     // todo
