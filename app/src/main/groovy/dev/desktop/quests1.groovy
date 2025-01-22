@@ -63,11 +63,13 @@ class quests1 {
     }
     void quest6() throws InterruptedException, IOException {
         // The Bandit leader quest
-        // very hard difficulty
         // todo
         health += 3;
         defence += 2;
         shop();
+        println "You travel in the woods to reach the bandit leader's hideout.";
+        Thread.sleep(500);
+        
     }
     void quest7() throws InterruptedException, IOException {
         // The bar owner's sword quest
