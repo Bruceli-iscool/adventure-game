@@ -1,4 +1,4 @@
-![gradle](https://github.com/Bruceli-iscool/adventure-game/actions/workflows/gradle.yml/badge.svg) ![code](https://github.com/Bruceli-iscool/adventure-game/actions/workflows/codeql.yml/badge.svg) [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+ ![code](https://github.com/Bruceli-iscool/adventure-game/actions/workflows/codeql.yml/badge.svg) [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 # Adventure-Game
 A dungeon crawler/adventure game written in java 
 
