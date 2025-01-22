@@ -210,14 +210,53 @@ combat(3, 0, 4, 3);
     gold += 50;
     health += 2;
     App.save(attack, defence, health, stamina, 5, gold);
+    quest5();
 }
-public void quest4() throws InterruptedException{
+public void quest4() throws InterruptedException, IOException {
     health += 2;
     defence += 1;
     System.out.println("=========================================================\nQuest 4\n====================================================================");
     // bandits lair
     shop();
-    // todo
+    System.out.println("You enter the Bandits Lair. It is a tiny cave with some bandits roaming around. You must fight them.");
+    System.out.println("You see a bandit and he draws his weapon!");
+    combat(3, 0, 4, 3);
+    System.out.println("You defeated the bandit! You continue down the path.");
+    Thread.sleep(500);
+    System.out.println("You travel through the cave and see a room labeled 'Loot', 1 to enter the room, 2 to continue down the path.");
+    String k = App.ask(">");
+    Thread.sleep(500);
+    if ("1".equals(k)) {
+        System.out.println("You enter the room, a bandit master sees you!");
+        combat(3, 2, 5, 3);
+        System.out.println("You defeated the bandit master! You start exploring the room.");
+        Thread.sleep(500);
+        System.out.println("You explore the room and discover 4 gold! (+ 4 gold)");
+        gold += 4;
+        Thread.sleep(500);
+    }
+    System.out.println("You continue down the path and see a split in the cave. 1 to go left, 2 to go right.");
+    k = App.ask(">");
+    Thread.sleep(500);
+    if ("1".equals(k)) {
+        System.out.println("You go left and see two bandits!");
+        combat(3, 0, 4, 3);
+        System.out.println("You defeated the first bandit.");
+        combat(3, 0, 4, 3);
+        System.out.println("You defeated the second bandit, he has a potion of minor healing (+1 health)! You continue down the path and exit the cave (+20 gold).");
+        gold += 20;
+        health += 1;
+        App.save(attack, defence, health, stamina, 5, gold);
+        quest5();
+    } else {
+        System.out.println("You go right and see a dead bandit and an Orc!");
+        combat(3, 0, 10, 1);
+        System.out.println("You defeat the Orc, he has a damaged Orc chest plate (+2 defense)! You continue down the path and exit the cave (+20 gold).");
+        gold += 20;
+        defence += 2;
+        App.save(attack, defence, health, stamina, 5, gold);
+        quest5();
+    }
 
 }
 public void quest5() throws IOException, InterruptedException {
