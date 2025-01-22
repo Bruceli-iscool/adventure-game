@@ -206,7 +206,9 @@ combat(3, 0, 4, 3);
     System.out.println("You continue down the path and reach the Trolls Lair.");
     System.out.println("The Troll King is a powerful enemy, unlike regular trolls, he has high defense.");
     combat(4, 7, 8, 1);
-    System.out.println("You killed the Troll King! You continue down the path and exit the cave.");
+    System.out.println("You killed the Troll King, he had one health potion (+ 2 health)! You continue down the path and exit the cave. (+50 gold)");
+    gold += 50;
+    health += 2;
     App.save(attack, defence, health, stamina, 5, gold);
 }
 public void quest4() throws InterruptedException{
