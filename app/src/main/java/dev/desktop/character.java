@@ -2,7 +2,7 @@ package dev.desktop;
 
 import java.io.IOException;
 import java.util.Random;
-// todo combat
+
 class character {
     int attack, defence, health, stamina, gold;
 
@@ -20,7 +20,7 @@ class character {
                 "=============================================================================\nTutorial\n===============================================================================");
         Thread.sleep(100);
         Thread.sleep(100); 
-        System.out.println("Welcome to the tutorial. Adventure-game is a game where you clear areas. \nThis Tutorial will help you kill your first enemy.");
+        System.out.println("Welcome to the tutorial. Adventure-game is a game where you complete quests. \nThis Tutorial will help you kill your first enemy.");
         Thread.sleep(1500);
         System.out.println("Your first enemy is an Orc. He has 10 health.\n");
 // combat
@@ -29,19 +29,18 @@ class character {
     Thread.sleep(1000);
     stamina += 1;    
     System.out.println("""
-        Your stats are: 
-        attack: """ + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
+        Your stats are:\s
+        attack:\s""" + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
     Thread.sleep(1000);
     App.save(attack, defence, health, stamina, 1, 0);
     quest1();
 }
 public void quest1() throws InterruptedException, IOException {
-    health += 5;
-    defence += 2;
-    System.out.println("=========================================================\nArea 1\n====================================================================");
+    health += 1;
+    defence += 1;
+    System.out.println("=========================================================\nQuest 1\n====================================================================");
     System.out.println("You enter a cave. There is two paths. 1 to go left, 2 to go right.");
     String k = App.ask(">");
-    //noinspection StatementWithEmptyBody
     if ("1".equals(k)) {
         Thread.sleep(500);
         System.out.println("You travel down the left side of the cave and encounter two doors.");
@@ -113,9 +112,9 @@ combat(3, 0, 6, 1);
 }
 public void quest2() throws InterruptedException, IOException {
     System.out.println("""
-                Your stats were:\s
+                Your stats are:\s
                 attack:\s""" + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
-    System.out.println("=========================================================\nArea 2\n====================================================================");
+    System.out.println("=========================================================\nQuest 2\n====================================================================");
     System.out.println("Congratulations! You unlocked the shop!");
     System.out.println("You can access the shop at the start of the quest.");
     Thread.sleep(1000);
@@ -135,9 +134,10 @@ public void quest2() throws InterruptedException, IOException {
     }
 public void quest3() throws InterruptedException{
      // cave of death
-
+    health += 3;
+    defence += 1;
     shop();
-    System.out.println("=========================================================\nArea 3\n====================================================================");
+    System.out.println("=========================================================\nQuest 3\n====================================================================");
     System.out.println("You enter the Cave of Death. Suddenly, a bandit jumps out and attacks you! (-2 health)");
     health -= 2;
     if (health < 1) {
@@ -147,19 +147,19 @@ public void quest3() throws InterruptedException{
 combat(3, 0, 4, 3);
     System.out.println("You defeated the bandit! You continue down the path.");
     Thread.sleep(500);
-    System.out.println("You travel down the cave and see trap ahead with a puzzle you must solve.");
+    System.out.println("You travel down the cave and see trap ahead with a puzzle you must solve. The trap says 'The beast shall past.'");
     Thread.sleep(500);
-    System.out.println("Eagle, Bear, Wolf, Cat statues are next to the trap. You must choose the correct option.");
+    System.out.println("Dragon, Fish, Wolf, Cat statues are next to the trap. You must choose the correct option.");
     String k = App.ask(">");
-    k.replaceAll("\\s", "");
-    if (k.equals("Wolf")) {
+    String cleanedK = k.replaceAll("\\s", "");
+    if (cleanedK.equals("Dragon")) {
         Thread.sleep(500);
         System.out.println("The drawbridge lowers over the trap and you continue down the path.");
     } else {
         Thread.sleep(500);
         System.out.println("The drawbridge does not lower and you fall into the trap. You lose 2 health.");
         System.out.println("""
-            Your stats were:\s
+            Your stats are:\s
             attack:\s""" + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
         Thread.sleep(500);
         System.out.println("You climb out of the trap and continue down the path.");
@@ -168,8 +168,38 @@ combat(3, 0, 4, 3);
             death();
         }
     }
+    System.out.println("You travel down the cave and see ruins. 1 to go explore the ruins, 2 to go deeper in the cave.");
+    k = App.ask(">");
+    Thread.sleep(500);
+    if ("1".equals(k)) {
+        System.out.println("You explore the ruins and discover two chests. 1 to open the first chest, 2 to open the second chest.");
+        k = App.ask(">");
+        Thread.sleep(500);
+        if ("1".equals(k)) {
+            System.out.println("You open the first chest and find 20 gold! (+ 20 gold)");
+            gold += 20;
+        } else {
+            System.out.println("You open the second chest and discover an rotten health potion. (-1 stamina)");
+            if (stamina > 0) {
+                stamina -= 1;
+            } else {
+                stamina = 0;
+            }
+        }
+        Thread.sleep(500);
+        System.out.println("You continue down the path and leave the ruins.");
+    }
+    System.out.println("You continue down the cave and encounter a skeleton!");
+    combat(4, 2, 4, 1);
+    System.out.println("You killed the skeleton! You continue down the path.");
+
+
 }
 public void quest4() throws InterruptedException{
+    // todo bonus based on difficulty
+    // placeholder
+    health += 2;
+    defence += 1;
     // bandits lair
     shop();
     // todo
@@ -178,17 +208,16 @@ public void quest4() throws InterruptedException{
 boolean checkHealth(int health) {
     return health >= 1;
 }
+
 void shop() throws InterruptedException {
      // opens a shop
-     health += 5;
-     defence += 2;
      System.out.println("""
-                Your stats were:\s
+                Your stats are:\s
                 attack:\s""" + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
     System.out.println("=========================================================\nArea 2\n====================================================================");
     System.out.println("Welcome to the shop!");
     Thread.sleep(500);
-    System.out.println();
+    System.out.println("You have " + gold + " gold.");
     System.out.println("1 for a health potion (cost 20 gold) (+ 5 health)\n2 for potion of minor healing (10 gold) (+ 2 health)\n3 for a set of Orc armor (200 gold) (+ 5 defence)\n4 for an Imperial Sword (200 gold) (+ 3 attack)\n5 for Imperial armor (300 gold) (+ 7 defence)\n6 to exit the shop");
     String k = App.ask(">");
     if (1 == Integer.parseInt(k)) {
@@ -226,8 +255,6 @@ void shop() throws InterruptedException {
         } else {
             System.out.println("You do not have enough gold.");
         }
-    } else {
-        return;
     }
 }
 void death() throws InterruptedException {
@@ -252,14 +279,17 @@ void combat(int a, int d, int h, int s) throws InterruptedException {
                     e.attacked(attack);
                 }
                 health = health - e.attack();
-                health += Math.round(stamina/3);
+                health +=  Math.round( stamina/3);
             } else {
                 if (defence < 0) {
                     defence = 0;
                 }
+                if (defence > e.attack) continue;
+                else {
                 health = health - (e.attack - defence);
-                health += Math.round(stamina/3);
+                health +=  Math.round( stamina/3);
                 defence = defence - e.attack;
+                }
             }
             e.stats();
         }
