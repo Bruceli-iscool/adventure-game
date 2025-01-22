@@ -122,7 +122,7 @@ public void quest2() throws InterruptedException, IOException {
     gold = 20;
     System.out.println("Now you can choose which quest to go on.");
     Thread.sleep(500);
-    System.out.println("1 to go to Cave of Death (reward 50 gold), 2 to go to the Bandits Lair (reward 20 gold)");
+    System.out.println("1 to go to Cave of Death (reward 50 gold) (Hard, recommend health > 6, Bonus health +3), 2 to go to the Bandits Lair (reward 20 gold) (Easy, recommend health > 5, Bonus health +2)");
     String k = App.ask(">");
     if ("1".equals(k)) {
         quest3();
@@ -132,7 +132,7 @@ public void quest2() throws InterruptedException, IOException {
         App.save(attack, defence, health, stamina, 4, gold);
     }
     }
-public void quest3() throws InterruptedException{
+public void quest3() throws InterruptedException, IOException {
      // cave of death
     health += 3;
     defence += 1;
@@ -192,19 +192,34 @@ combat(3, 0, 4, 3);
     System.out.println("You continue down the cave and encounter a skeleton!");
     combat(4, 2, 4, 1);
     System.out.println("You killed the skeleton! You continue down the path.");
-
-
+    Thread.sleep(500);
+    System.out.println("You encounter a room ahead. 1 to enter the room, 2 to continue down the path.");
+    k = App.ask(">");
+    Thread.sleep(500);
+    if ("1".equals(k)) {
+        System.out.println("You enter the room, it turns out to be an abandoned hideout.");
+        Thread.sleep(500);
+        System.out.println("You explore the room and discover a health potion! (+ 2 health)");
+        health += 2;
+        Thread.sleep(500);
+    }
+    System.out.println("You continue down the path and reach the Trolls Lair.");
+    System.out.println("The Troll King is a powerful enemy, unlike regular trolls, he has high defense.");
+    combat(4, 7, 8, 1);
+    System.out.println("You killed the Troll King! You continue down the path and exit the cave.");
+    App.save(attack, defence, health, stamina, 5, gold);
 }
 public void quest4() throws InterruptedException{
-    // todo bonus based on difficulty
-    // placeholder
     health += 2;
     defence += 1;
     // bandits lair
     shop();
     // todo
 }
-
+public void quest5() throws InterruptedException{
+    // todo
+    // town with two quest options
+}
 boolean checkHealth(int health) {
     return health >= 1;
 }

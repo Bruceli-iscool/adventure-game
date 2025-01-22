@@ -29,6 +29,6 @@ public class Enemy {
         health = health - (damage) ;
     }
     void stats() {
-        System.out.println("Orcs Health: " + health);
+        System.out.println("Enemy Health: " + health);
     }
 }

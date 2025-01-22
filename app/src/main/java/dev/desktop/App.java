@@ -95,6 +95,9 @@ public class App {
             case 4:
             n.quest4();
             break;
+            case 5:;
+            n.quest5();
+            break;
         }
     }
     // write in the file.
