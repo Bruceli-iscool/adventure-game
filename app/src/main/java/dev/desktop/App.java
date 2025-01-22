@@ -95,8 +95,17 @@ public class App {
             case 4:
             n.quest4();
             break;
-            case 5:;
+            case 5:
             n.quest5();
+            break;
+            case 6:
+            n.quest6();
+            break;
+            case 7:
+            n.quest7();
+            break;
+            case 8:
+            n.quest8();
             break;
         }
     }

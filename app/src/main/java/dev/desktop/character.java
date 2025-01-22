@@ -263,6 +263,18 @@ public void quest5() throws IOException, InterruptedException {
     quests1 j = new quests1(attack, stamina, defence, health, gold);
     j.quest5();
 }
+protected void quest6() throws InterruptedException, IOException {
+    quests1 j = new quests1(attack, stamina, defence, health, gold);
+    j.quest6();
+}
+protected void quest7() throws InterruptedException, IOException {
+    quests1 j = new quests1(attack, stamina, defence, health, gold);
+    j.quest7();
+}
+protected void quest8() throws InterruptedException, IOException {
+    quests1 j = new quests1(attack, stamina, defence, health, gold);
+    j.quest8();
+}
 boolean checkHealth(int health) {
     return health >= 1;
 }
