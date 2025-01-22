@@ -220,9 +220,9 @@ public void quest4() throws InterruptedException{
     // todo
 
 }
-public void quest5() throws InterruptedException{
-    // todo
-    // town with two quest options
+public void quest5() throws IOException, InterruptedException {
+    quests1 j = new quests1(attack, stamina, defence, health, gold);
+    j.quest5();
 }
 boolean checkHealth(int health) {
     return health >= 1;
