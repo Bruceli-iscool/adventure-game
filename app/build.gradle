@@ -9,6 +9,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'java'
     id 'groovy'
 }
 
@@ -46,4 +47,14 @@ java {
 application {
     // Define the main class for the application.
     mainClass = 'dev.desktop.App'
+}
+sourceSets {
+    main {
+        java {
+            srcDirs = []
+        }
+        groovy {
+            srcDirs = ['src/main/java', 'src/main/groovy']  // Include groovy sources in the main source set
+        }
+    }
 }
