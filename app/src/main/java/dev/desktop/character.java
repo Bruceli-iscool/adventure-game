@@ -260,6 +260,7 @@ public void quest4() throws InterruptedException, IOException {
 
 }
 public void quest5() throws IOException, InterruptedException {
+        System.out.println("I was called!2");
     quests1 j = new quests1(attack, stamina, defence, health, gold);
     j.quest5();
 }
@@ -284,7 +285,7 @@ void shop() throws InterruptedException {
      System.out.println("""
                 Your stats are:\s
                 attack:\s""" + attack + "\ndefence: " + defence + "\nhealth: " + health + "\nstamina: " + stamina);
-    System.out.println("=========================================================\nArea 2\n====================================================================");
+    System.out.println("=========================================================\nShop\n====================================================================");
     System.out.println("Welcome to the shop!");
     Thread.sleep(500);
     System.out.println("You have " + gold + " gold.");
@@ -353,8 +354,10 @@ void combat(int a, int d, int h, int s) throws InterruptedException {
                 if (defence < 0) {
                     defence = 0;
                 }
-                if (defence > e.attack) continue;
-                else {
+                if (defence > e.attack) {
+                    defence -= e.attack;
+                    health +=  Math.round( stamina/3);
+                } else {
                 health = health - (e.attack - defence);
                 health +=  Math.round( stamina/3);
                 defence = defence - e.attack;

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.FileWriter;
 
 public class App {
-    public static int[] save = new int[5];
+    public static int[] save = new int[6];
     public static File saveFile;
     public static void main(String args[]) throws InterruptedException, IOException {
         System.out.println("Welcome to Adventure-Game\n================================================================");
@@ -107,6 +107,10 @@ public class App {
             case 8:
             n.quest8();
             break;
+            default:
+                System.err.println("Invalid save file!");
+                n.start();
+                break;
         }
     }
     // write in the file.
