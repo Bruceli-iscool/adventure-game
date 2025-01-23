@@ -36,7 +36,7 @@ class character {
     quest1();
 }
 public void quest1() throws InterruptedException, IOException {
-    health += 1;
+    health += 3;
     defence += 1;
     System.out.println("=========================================================\nQuest 1\n====================================================================");
     System.out.println("You enter a cave. There is two paths. 1 to go left, 2 to go right.");
@@ -354,7 +354,7 @@ void combat(int a, int d, int h, int s) throws InterruptedException {
                 if (defence < 0) {
                     defence = 0;
                 }
-                if (defence > e.attack) {
+                if (defence >= e.attack) {
                     defence -= e.attack;
                     health +=  Math.round( stamina/3);
                 } else {
