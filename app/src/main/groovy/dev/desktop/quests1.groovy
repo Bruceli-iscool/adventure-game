@@ -143,7 +143,21 @@ class quests extends character {
             health += 2
             sleep 500
         } else {
-            // todo
+            println "You sneak to the watch tower door but the bandit guards see you!"
+            sleep 500
+            combat 3, 0, 4, 3
+            println "You killed the first guard!"
+            sleep 500
+            println "The second guard attacks you!"
+            sleep 500
+            combat 3, 0, 4, 3
+            println "You killed the second guard!"
+            sleep 500
+            println "You move up the watch tower and kill the bandit archer."
+            sleep 500
+            println "You also find a potion of minor healing (+ 2 health)."
+            health += 2
+            sleep 500
         }        
         println "You enter the bandit leader's lair and see the bandit leader with a bandit patrol commander and 2 guards"
         sleep 500

@@ -1,10 +1,11 @@
 package dev.desktop
 
-class quests1 extends character {
+class quests extends character {
     // do another 2 quests in groovy, then create a new java class for quests
     // and rotate between them
     int attack, defence, health, stamina, gold
-    quests1(int a, int d,int  h, int s,int g) {
+
+    quests(int a, int d, int h, int s, int g) {
         super(a, d, h, s, g)
         attack = a
         defence = d
@@ -12,6 +13,7 @@ class quests1 extends character {
         stamina = s
         gold = g
     }
+
     void quest5() throws InterruptedException, IOException {
         println "=========================================================\nQuest 5\n===================================================================="
         sleep 500
@@ -59,9 +61,10 @@ class quests1 extends character {
                 println("You decide to go find the bar owner's sword.")
                 App.save attack, defence, health, stamina, 7, gold
                 quest7()
-        }
+            }
         }
     }
+
     void quest6() throws InterruptedException, IOException {
         // The Bandit leader quest
         health += 4
@@ -121,7 +124,7 @@ class quests1 extends character {
         }
         println "You enter the bandits hideout and sneak behind some ruins."
         sleep 500
-        println "Two bandit guards are patroling the entrance to the bandit leader's lair."
+        println "Two bandit guards are patrolling the entrance to the bandit leader's lair."
         sleep 500
         println "To the left, there is a damaged watch tower with a bandit archer watching the entrance to the bandit leader's lair."
         sleep 500
@@ -140,11 +143,30 @@ class quests1 extends character {
             health += 2
             sleep 500
         } else {
-            // todo
+            println "You sneak to the watch tower door but the bandit guards see you!"
+            sleep 500
+            combat 3, 0, 4, 3
+            println "You killed the first guard!"
+            sleep 500
+            println "The second guard attacks you!"
+            sleep 500
+            combat 3, 0, 4, 3
+            println "You killed the second guard!"
+            sleep 500
+            println "You move up the watch tower and kill the bandit archer."
+            sleep 500
+            println "You also find a potion of minor healing (+ 2 health)."
+            health += 2
+            sleep 500
         }        
         println "You enter the bandit leader's lair and see the bandit leader with a bandit patrol commander and 2 guards"
-        }
-        }
+        sleep 500
+        println "The first guard attacks you!"
+        combat 3, 0, 4, 3
+        sleep 500
+
+    }
+
     void quest7() throws InterruptedException, IOException {
         // The bar owner's sword quest
         // hard difficulty
