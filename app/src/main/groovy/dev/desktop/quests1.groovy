@@ -1,10 +1,11 @@
 package dev.desktop
 
-class quests1 extends character {
+class quests extends character {
     // do another 2 quests in groovy, then create a new java class for quests
     // and rotate between them
     int attack, defence, health, stamina, gold
-    quests1(int a, int d,int  h, int s,int g) {
+
+    quests(int a, int d, int  h, int s, int g) {
         super(a, d, h, s, g)
         attack = a
         defence = d
@@ -121,7 +122,7 @@ class quests1 extends character {
         }
         println "You enter the bandits hideout and sneak behind some ruins."
         sleep 500
-        println "Two bandit guards are patroling the entrance to the bandit leader's lair."
+        println "Two bandit guards are patrolling the entrance to the bandit leader's lair."
         sleep 500
         println "To the left, there is a damaged watch tower with a bandit archer watching the entrance to the bandit leader's lair."
         sleep 500
@@ -160,4 +161,3 @@ class quests1 extends character {
         health += 1
         shop()
     }
-}
