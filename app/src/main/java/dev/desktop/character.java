@@ -210,7 +210,7 @@ combat(3, 0, 4, 3);
     gold += 50;
     health += 2;
     App.save(attack, defence, health, stamina, 5, gold);
-    quest5();
+    quests(5);
 }
 public void quest4() throws InterruptedException, IOException {
     health += 2;
@@ -247,7 +247,7 @@ public void quest4() throws InterruptedException, IOException {
         gold += 20;
         health += 1;
         App.save(attack, defence, health, stamina, 5, gold);
-        quest5();
+        quests(5);
     } else {
         System.out.println("You go right and see a dead bandit and an Orc!");
         combat(3, 0, 10, 1);
@@ -255,27 +255,20 @@ public void quest4() throws InterruptedException, IOException {
         gold += 20;
         defence += 2;
         App.save(attack, defence, health, stamina, 5, gold);
-        quest5();
+        quests(5);
     }
 
 }
-public void quest5() throws IOException, InterruptedException {
-        System.out.println("I was called!2");
+public void quests(int level) throws IOException, InterruptedException {
     quests j = new quests(attack, stamina, defence, health, gold);
-    j.quest5();
+    switch (level) {
+        case 5 -> j.quest5();
+        case 6 -> j.quest6();
+        case 7 -> j.quest7();
+        case 8 -> j.quest8();
+    }
 }
-protected void quest6() throws InterruptedException, IOException {
-    quests j = new quests(attack, stamina, defence, health, gold);
-    j.quest6();
-}
-protected void quest7() throws InterruptedException, IOException {
-    quests j = new quests(attack, stamina, defence, health, gold);
-    j.quest7();
-}
-protected void quest8() throws InterruptedException, IOException {
-    quests j = new quests(attack, stamina, defence, health, gold);
-    j.quest8();
-}
+
 boolean checkHealth(int health) {
     return health >= 1;
 }

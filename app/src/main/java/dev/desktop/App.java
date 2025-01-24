@@ -96,16 +96,16 @@ public class App {
             n.quest4();
             break;
             case 5:
-            n.quest5();
+            n.quests(5);
             break;
             case 6:
-            n.quest6();
+            n.quests(6);
             break;
             case 7:
-            n.quest7();
+            n.quests(7);
             break;
             case 8:
-            n.quest8();
+            n.quests(8);
             break;
             default:
                 System.err.println("Invalid save file!");

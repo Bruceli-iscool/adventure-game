@@ -5,7 +5,7 @@ class quests extends character {
     // and rotate between them
     int attack, defence, health, stamina, gold
 
-    quests(int a, int d, int  h, int s, int g) {
+    quests(int a, int d, int h, int s, int g) {
         super(a, d, h, s, g)
         attack = a
         defence = d
@@ -13,6 +13,7 @@ class quests extends character {
         stamina = s
         gold = g
     }
+
     void quest5() throws InterruptedException, IOException {
         println "=========================================================\nQuest 5\n===================================================================="
         sleep 500
@@ -60,9 +61,10 @@ class quests extends character {
                 println("You decide to go find the bar owner's sword.")
                 App.save attack, defence, health, stamina, 7, gold
                 quest7()
-        }
+            }
         }
     }
+
     void quest6() throws InterruptedException, IOException {
         // The Bandit leader quest
         health += 4
@@ -144,8 +146,13 @@ class quests extends character {
             // todo
         }        
         println "You enter the bandit leader's lair and see the bandit leader with a bandit patrol commander and 2 guards"
-        }
-        }
+        sleep 500
+        println "The first guard attacks you!"
+        combat 3, 0, 4, 3
+        sleep 500
+
+    }
+
     void quest7() throws InterruptedException, IOException {
         // The bar owner's sword quest
         // hard difficulty
@@ -161,3 +168,4 @@ class quests extends character {
         health += 1
         shop()
     }
+}
