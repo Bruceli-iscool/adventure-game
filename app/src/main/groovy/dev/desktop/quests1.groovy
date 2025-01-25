@@ -159,11 +159,23 @@ class quests extends character {
             health += 2
             sleep 500
         }        
-        println "You enter the bandit leader's lair and see the bandit leader with a bandit patrol commander and 2 guards"
+        println "You enter the bandit leader's lair and see the bandit leader and 2 guards"
         sleep 500
         println "The first guard attacks you!"
         combat 3, 0, 4, 3
         sleep 500
+        println "You killed the first guard!"
+        sleep 500
+        println "The second guard attacks you!"
+        combat 3, 0, 4, 3
+        sleep 500
+        println "You killed the second guard!"
+        sleep 500
+        println "The bandit leader attacks you!"
+        combat 3, 0, 10, 3
+        sleep 500
+        println "You killed the bandit leader and received another potion of minor healing (+ 2 health)."
+        health += 2
 
     }
 
