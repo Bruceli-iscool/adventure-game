@@ -199,10 +199,12 @@ class quests extends character {
     void quest7() throws InterruptedException, IOException {
         // The bar owner's sword quest
         // hard difficulty
-        // todo
+        println "=========================================================\nQuest 7\n===================================================================="
         health += 3
         defence += 1
         shop()
+        println "The bar owner tells you that his sword was last seen in the Cliffs of Death."
+        sleep 500
     }
     void quest8() throws InterruptedException, IOException {
         // The king's crown quest
