@@ -107,6 +107,9 @@ public class App {
             case 8:
             n.quests(8);
             break;
+            case 9:
+            n.quests(9);
+            break;
             default:
                 System.err.println("Invalid save file!");
                 n.start();

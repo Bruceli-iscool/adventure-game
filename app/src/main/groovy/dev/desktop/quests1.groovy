@@ -176,7 +176,24 @@ class quests extends character {
         sleep 500
         println "You killed the bandit leader and received another potion of minor healing (+ 2 health)."
         health += 2
-
+        sleep 500
+        println "You also find a chest with 40 gold in it."
+        gold += 40
+        sleep 500
+        println "You return back to the forest to return to the town."
+        sleep 500
+        println "As you travel through the forest, a wolf attacks you!"
+        combat 2, 0, 3, 1
+        sleep 500
+        println "You killed the wolf!"
+        sleep 500
+        println "You return to the town and receive your reward."
+        gold += 100
+        println "Your stats are: Attack: " + attack + "\nDefence: " + defence + "\nHealth: " + health + "\nStamina: " + stamina
+        sleep 500
+        App.save attack, defence, health, stamina, 9, gold
+        def k = new quest2 (attack, defence, health, stamina, gold)
+        k.quest9()
     }
 
     void quest7() throws InterruptedException, IOException {

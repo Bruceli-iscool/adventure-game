@@ -261,11 +261,13 @@ public void quest4() throws InterruptedException, IOException {
 }
 public void quests(int level) throws IOException, InterruptedException {
     quests j = new quests(attack, stamina, defence, health, gold);
+    quest2 k = new quest2(attack, stamina, defence, health, gold);
     switch (level) {
         case 5 -> j.quest5();
         case 6 -> j.quest6();
         case 7 -> j.quest7();
         case 8 -> j.quest8();
+        case 9 -> k.quest9();
     }
 }
 
