@@ -74,13 +74,13 @@ class quests extends character {
         sleep 500
         println "A group of bandits are ahead, patrolling the road, 1 to sneak past them, 2 to fight them."
         sleep 500
-        def n = App.ask ">";
+        def n = App.ask ">"
         if ("1" == n) {
             sleep 500
             println "You sneak into a bush and sneaks up to the patrol."
-            sleep 500;
+            sleep 500
             println "Then, the leader of the group sees you and draws his sword! His men attack you!"
-            sleep 500;
+            sleep 500
         }
         println "The first bandit swings first."
         combat 3, 0, 4, 3
@@ -205,6 +205,18 @@ class quests extends character {
         shop()
         println "The bar owner tells you that his sword was last seen in the Cliffs of Death."
         sleep 500
+	println "You travel along the roads and get ambushed by a bandit!"
+	sleep 500
+	println "They demand 10 gold. 1 to fight them, 2 to give them the gold"
+	def n = App.ask ">"
+	if (n == "1") {
+	   println "You lunge at the bandit!"
+	   sleep 500
+	   combat 3, 0, 4, 3
+	   println "You defeated the bandit!"	
+	} else {
+           //todo
+	}
     }
     void quest8() throws InterruptedException, IOException {
         // The king's crown quest
