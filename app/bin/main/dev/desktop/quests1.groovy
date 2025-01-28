@@ -74,13 +74,13 @@ class quests extends character {
         sleep 500
         println "A group of bandits are ahead, patrolling the road, 1 to sneak past them, 2 to fight them."
         sleep 500
-        def n = App.ask ">";
+        def n = App.ask ">"
         if ("1" == n) {
             sleep 500
             println "You sneak into a bush and sneaks up to the patrol."
-            sleep 500;
+            sleep 500
             println "Then, the leader of the group sees you and draws his sword! His men attack you!"
-            sleep 500;
+            sleep 500
         }
         println "The first bandit swings first."
         combat 3, 0, 4, 3
@@ -159,21 +159,64 @@ class quests extends character {
             health += 2
             sleep 500
         }        
-        println "You enter the bandit leader's lair and see the bandit leader with a bandit patrol commander and 2 guards"
+        println "You enter the bandit leader's lair and see the bandit leader and 2 guards"
         sleep 500
         println "The first guard attacks you!"
         combat 3, 0, 4, 3
         sleep 500
-
+        println "You killed the first guard!"
+        sleep 500
+        println "The second guard attacks you!"
+        combat 3, 0, 4, 3
+        sleep 500
+        println "You killed the second guard!"
+        sleep 500
+        println "The bandit leader attacks you!"
+        combat 3, 0, 10, 3
+        sleep 500
+        println "You killed the bandit leader and received another potion of minor healing (+ 2 health)."
+        health += 2
+        sleep 500
+        println "You also find a chest with 40 gold in it."
+        gold += 40
+        sleep 500
+        println "You return back to the forest to return to the town."
+        sleep 500
+        println "As you travel through the forest, a wolf attacks you!"
+        combat 2, 0, 3, 1
+        sleep 500
+        println "You killed the wolf!"
+        sleep 500
+        println "You return to the town and receive your reward."
+        gold += 100
+        println "Your stats are: Attack: " + attack + "\nDefence: " + defence + "\nHealth: " + health + "\nStamina: " + stamina
+        sleep 500
+        App.save attack, defence, health, stamina, 9, gold
+        def k = new quest2 (attack, defence, health, stamina, gold)
+        k.quest9()
     }
 
     void quest7() throws InterruptedException, IOException {
         // The bar owner's sword quest
         // hard difficulty
-        // todo
+        println "=========================================================\nQuest 7\n===================================================================="
         health += 3
         defence += 1
         shop()
+        println "The bar owner tells you that his sword was last seen in the Cliffs of Death."
+        sleep 500
+	println "You travel along the roads and get ambushed by a bandit!"
+	sleep 500
+	println "They demand 10 gold. 1 to fight them, 2 to give them the gold"
+	def n = App.ask ">"
+	if (n == "1") {
+	   println "You lunge at the bandit!"
+	   sleep 500
+	   combat 3, 0, 4, 3
+	   println "You defeated the bandit!"	
+	} else {
+           //todo
+	}
     }
     void quest8() throws InterruptedException, IOException {
         // The king's crown quest
