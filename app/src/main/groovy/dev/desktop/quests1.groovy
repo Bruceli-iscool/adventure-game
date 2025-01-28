@@ -222,6 +222,26 @@ class quests extends character {
     }
         println "You continue to the Cliffs of Death."
         sleep 500
+        println "As you travel down the path, the path ends. You must climb down."
+        sleep 500
+        println "As you climb down, a wolf jumps at you! (-2 health)"
+        health -= 2
+        if (health < 0) {
+            death()
+        }
+        combat 2, 0, 4, 1;
+        println "You killed the wolf!"
+        sleep 500
+        println "You continue climbing down the cliffs until you reach the bottom."
+        sleep 500
+        println "You see two entrances to a cave, 1 to enter the left entrance, 2 to enter the right entrance."
+        n = App.ask ">"
+        if (n == "1") {
+            sleep 500
+            println ""
+        } else {
+
+        }
     }
     void quest8() throws InterruptedException, IOException {
         // The king's crown quest
