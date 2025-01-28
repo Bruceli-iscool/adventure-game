@@ -213,10 +213,15 @@ class quests extends character {
 	   println "You lunge at the bandit!"
 	   sleep 500
 	   combat 3, 0, 4, 3
-	   println "You defeated the bandit!"	
+	   println "You defeated the bandit!"
+       sleep 500
 	} else {
-           //todo
-	}
+           println "You give the bandit 10 gold."
+           sleep 500
+           gold -= 10
+    }
+        println "You continue to the Cliffs of Death."
+        sleep 500
     }
     void quest8() throws InterruptedException, IOException {
         // The king's crown quest
