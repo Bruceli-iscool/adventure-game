@@ -240,7 +240,8 @@ class quests extends character {
             sleep 500
             println ""
         } else {
-
+            sleep 500
+            println ""
         }
     }
     void quest8() throws InterruptedException, IOException {
