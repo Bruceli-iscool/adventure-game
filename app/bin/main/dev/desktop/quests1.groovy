@@ -238,9 +238,37 @@ class quests extends character {
         n = App.ask ">"
         if (n == "1") {
             sleep 500
-            println ""
+            println "You enter the cave from the left entrance."
+            sleep 500
+            println "As you travel down, there is a split in the path. 1 to go left, 2 to go right."
+            n = App.ask ">"
+            if (n == "1") {
+                println "You go left and see a chest with 20 gold in it. (+20 gold)"
+                gold += 20
+                sleep 500
+                println "You continue down the left path and see a split in the path. 1 to go left, 2 to go right."
+                n = App.ask ">"
+                if (n == "1") {
+                    println "You go left and encounter a dead end. You turn back to the split and go right."
+                }
+                println "You go right and see some dead bodies on the ground. 1 to search the bodies, 2 to continue down the path."
+                if (n=="1") {
+                    sleep 500
+                    println "You search the bodies and find a potion of minor healing (+2 health)."
+                    health += 2
+                    sleep 500
+                    println "You also find a note from the bar owner."
+                }
+                println "You continue down the path and see a mercanary guarding the path ahead"
+                sleep 500
+                combat 3, 0, 6, 3
+                println "You killed the mercanary!"
+            } else {
+                //todo
+            }
         } else {
-
+            sleep 500
+            println ""
         }
     }
     void quest8() throws InterruptedException, IOException {
