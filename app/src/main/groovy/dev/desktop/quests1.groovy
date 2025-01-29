@@ -259,10 +259,10 @@ class quests extends character {
                     sleep 500
                     println "You also find a note from the bar owner."
                 }
-                println "You continue down the path and see a mercanary guarding the path ahead"
+                println "You continue down the path and see a mercenary guarding the path ahead"
                 sleep 500
                 combat 3, 0, 6, 3
-                println "You killed the mercanary!"
+                println "You killed the mercenary!"
             } else {
                 //todo
             }
