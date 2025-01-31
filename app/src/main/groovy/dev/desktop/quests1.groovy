@@ -263,6 +263,31 @@ class quests extends character {
                 sleep 500
                 combat 3, 0, 6, 3
                 println "You killed the mercenary!"
+                sleep 500
+                println "The mercenary has 5 gold (+5 gold)"
+                gold += 5
+                sleep 500
+                println "You continue down the path and see rocks blocking the path."
+                sleep 500
+                println "You see a locked chest on the floor. There is a code on the chest."
+                sleep 500
+                println "There is a missing number in the code. 12_375698"
+                n = App.ask "What is the code?"
+                def l = n.replaceAll "\\s", ""
+                sleep 500
+                def f = false;
+                while (!f){
+                    if (l == "4") {
+                        println "You must enter the entire code."
+                    } else if (l == "124375698") {
+                        println "You entered the correct code!"
+                        f = true
+                        break
+                    } else {
+                        println "You entered the wrong code!"
+                    }
+                }
+                // todo
             } else {
                 //todo
             }
