@@ -275,18 +275,19 @@ class quests extends character {
                 n = App.ask "What is the code?"
                 def l = n.replaceAll "\\s", ""
                 sleep 500
-                def f = false;
                 while (!f){
                     if (l == "4") {
                         println "You must enter the entire code."
                     } else if (l == "124375698") {
                         println "You entered the correct code!"
-                        f = true
                         break
                     } else {
                         println "You entered the wrong code!"
                     }
                 }
+                println "Inside the chest is a pickaxe."
+                sleep 500
+                println "You use the pickaxe to break the rocks blocking the path."
                 // todo
             } else {
                 //todo
