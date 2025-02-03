@@ -38,7 +38,7 @@ class quests extends character {
         sleep 500
         System.out.println("You walk further into the town and enter the bar.")
         sleep 500
-        println "The bar owner gives you a quest to find his lost sword in the Dungeons of Doom (+10 gold) (Hard, +3 health bonus)."
+        println "The bar owner gives you a quest to find his lost sword in the Cliffs of Death (+10 gold) (Hard, +3 health bonus)."
         sleep 500
         println "1 to accept, 2 to decline."
         n = App.ask(">")
@@ -275,21 +275,42 @@ class quests extends character {
                 n = App.ask "What is the code?"
                 def l = n.replaceAll "\\s", ""
                 sleep 500
-                def f = false;
                 while (!f){
                     if (l == "4") {
                         println "You must enter the entire code."
                     } else if (l == "124375698") {
                         println "You entered the correct code!"
-                        f = true
                         break
                     } else {
                         println "You entered the wrong code!"
                     }
                 }
-                // todo
+                println "Inside the chest is a pickaxe."
+                sleep 500
+                println "You use the pickaxe to break the rocks blocking the path."
+                sleep 500
+                println "You continue down the path and see a spider!"
+                sleep 500
+                combat 2, 0, 4, 1
+                println "You killed the spider!"
+                sleep 500
+                println "You continue down the path and see the sword!"
+                sleep 500
+                println "As you try to pull the sword out of the rock, the bar owner appears!"
+                sleep 500
+                println "He tells you that the sword is a ruse to kill you!"
+                sleep 500
+                println "He attacks you!"
+                combat(3, 0, 5, 2)
+                println "You kill the bar owner! (+10 gold)"
+                sleep 500
+                println "You leave the cave and return to town."
+                println "Your stats are: Attack: " + attack + "\nDefence: " + defence + "\nHealth: " + health + "\nStamina: " + stamina
+                App.save attack, defence, health, stamina, 9, gold
+                def k = new quest2 (attack, defence, health, stamina, gold)
+                k.quest9()
             } else {
-                //todo
+                println "You go down the right side of the path."
             }
         } else {
             sleep 500
