@@ -345,7 +345,7 @@ class quests extends character {
                     sleep 500
                     println ""
                 } else {
-
+                    //todo
                 }
           }
         } else {
