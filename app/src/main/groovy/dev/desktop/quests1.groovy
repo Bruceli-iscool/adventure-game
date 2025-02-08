@@ -312,7 +312,18 @@ class quests extends character {
             } else {
                 println "You go down the right side of the path."
                 sleep 500
-                println "As you "
+                println "As you move down the path, you see a troll ahead."
+                sleep 500
+                println "The troll swings at you!"
+                combat 3, 0, 4, 2
+                println "You killed the troll! He drops a piece of troll armor (+ 1 defence)"
+                sleep 500
+                println "You continue down the path and encounter a locked metal gate."
+                sleep 500
+                println "There is a puzzle on the keypad."
+                sleep 500
+                println "The puzzle says"
+                sleep 500
             }
         } else {
             sleep 500
