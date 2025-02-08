@@ -272,10 +272,10 @@ class quests extends character {
                 println "You see a locked chest on the floor. There is a code on the chest."
                 sleep 500
                 println "There is a missing number in the code. 12_375698"
-                n = App.ask "What is the code?"
-                def l = n.replaceAll "\\s", ""
                 sleep 500
                 while (!f){
+                    n = App.ask "What is the code?"
+                    def l = n.replaceAll "\\s", ""
                     if (l == "4") {
                         println "You must enter the entire code."
                     } else if (l == "124375698") {
@@ -315,16 +315,39 @@ class quests extends character {
                 println "As you move down the path, you see a troll ahead."
                 sleep 500
                 println "The troll swings at you!"
-                combat 3, 0, 4, 2
+                combat 3, 0, 4, 2    
                 println "You killed the troll! He drops a piece of troll armor (+ 1 defence)"
                 sleep 500
                 println "You continue down the path and encounter a locked metal gate."
                 sleep 500
                 println "There is a puzzle on the keypad."
                 sleep 500
-                println "The puzzle says"
+                println "The puzzle says that you must find the missing word."
                 sleep 500
-            }
+                println "What is the missing word in high, low, down. ___?"
+                while (true) {
+                    n = App.ask ">"          
+                    if (n == "up" || n == "Up" || n == "UP") {
+                        break;
+                    } else {
+                        sleep 500
+                        println "The door does not open! Try again!"
+                    }
+                }
+                sleep 500
+                println "You open the door and continue down the path."
+                sleep 500
+                println "You encounter a split in the path! 1 to go left, 2 to go right"
+                n = App.ask ">"
+                if (n=="1") {
+                    sleep 500
+                    println "You go down the left side of the path and encounter the bar owner's sword!"
+                    sleep 500
+                    println ""
+                } else {
+
+                }
+          }
         } else {
             sleep 500
             println ""

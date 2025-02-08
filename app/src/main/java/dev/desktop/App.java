@@ -18,7 +18,7 @@ public class App {
 ||____||__,_|_| |_| |_||___|
 =============================================================================
 """);
-        Thread.sleep(100);
+        Thread.sleep(500);
         String ns = ask("1 to load a game, 2 to start a new game");
         if ("1".equals(ns)) {
             // implement load
