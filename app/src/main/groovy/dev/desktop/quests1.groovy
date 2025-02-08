@@ -311,7 +311,8 @@ class quests extends character {
                 k.quest9()
             } else {
                 println "You go down the right side of the path."
-                // todo
+                sleep 500
+                println "As you "
             }
         } else {
             sleep 500
