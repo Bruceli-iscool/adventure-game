@@ -351,9 +351,14 @@ class quests extends character {
                     combat 4, 0, 8, 1
                     println "You killed the troll!"
                     sleep 500 
-                    
+                    println "You grab the sword and take 10 gold from the bar owner's dead body."
+                    golf += 10
+                    App.save attack, defence, health, stamina, 9, gold
+                    def k = new quest2(attack, defence, health, stamina, gold)
+                    k.quest9()
                 } else {
-                    //todo
+                    sleep 500
+                    println "You go down the right side of the path"
                 }
           }
         } else {

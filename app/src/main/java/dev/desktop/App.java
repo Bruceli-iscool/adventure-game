@@ -19,7 +19,7 @@ public class App {
 =============================================================================
 """);
         Thread.sleep(500);
-        String ns = ask("1 to load a game, 2 to start a new game");
+        String ns = ask("1 to load a game, 2 to start a new game, 3 to load a custom script.");
         if ("1".equals(ns)) {
             // implement load
             Thread.sleep(100);
@@ -43,8 +43,7 @@ public class App {
                         e1.printStackTrace();
                     }
                 }
-            }
-            else {
+            }else {
                 saveFile = new File(ask("Enter file path: "));
                 int i = 0;
                 try (Scanner scanner = new Scanner(saveFile)) {
@@ -57,7 +56,9 @@ public class App {
                 }
                 loadSave(save[0], save[1], save[2], save[3], save[4], save[5]);
             }
-        } else {
+        }  else if ("3".equals(ns)) {
+                loadScript();
+            }else {
             saveFile = new File("game.sav");
             String ans = ask("Create a new character? Y, n");
             if ("Y".equals(ans.strip())) {
@@ -127,4 +128,24 @@ public class App {
             save(a, d, h,s,l,g);
         }
     }
+    public static void loadScript() throws IOException, InterruptedException {
+        String g = ask("Enter script filepath: ");
+        File saveFile = new File(g);
+        String content = "";
+        try (Scanner scanner = new Scanner(saveFile)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                if (line == "") {
+                    //comments
+                }
+                content += scanner.nextLine();
+        } 
+        }catch (FileNotFoundException n) {
+            System.err.println("Error! File not found!");
+            System.exit(64);
+        }
+        characterCreator c = new characterCreator();
+        c.dsl(content);
+    }
 }
+

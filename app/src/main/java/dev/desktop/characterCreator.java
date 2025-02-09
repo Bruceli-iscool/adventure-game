@@ -82,4 +82,8 @@ class characterCreator {
             e.printStackTrace();
         }
     }
+    protected void dsl(String content) throws InterruptedException, IOException {
+        dsl n = new dsl(attack, defence, health, stamina, 0, content);
+        n.parse();
+    }
 }
