@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileWriter;
-
+import java.util.regex.*;
 public class App {
     public static int[] save = new int[6];
     public static File saveFile;
@@ -135,17 +135,29 @@ public class App {
         try (Scanner scanner = new Scanner(saveFile)) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                if (line == "") {
-                    //comments
-                }
+                if (first(line).equals("#")) {
+                    continue;
+                } else {
                 content += scanner.nextLine();
+                }
         } 
         }catch (FileNotFoundException n) {
             System.err.println("Error! File not found!");
             System.exit(64);
         }
         characterCreator c = new characterCreator();
+        Thread.sleep(500);
+        System.out.println("Starting Script Character Creation Process!");
+        Thread.sleep(500);
         c.dsl(content);
+    }
+    public static String first(String in) {
+        Matcher matcher = Pattern.compile("\\S").matcher(in);
+        StringBuilder result = new StringBuilder();
+        while (matcher.find() && result.length() < 1) {
+            result.append(matcher.group());
+        }
+        return result.toString();
     }
 }
 
