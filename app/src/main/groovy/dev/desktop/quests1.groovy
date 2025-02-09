@@ -343,7 +343,15 @@ class quests extends character {
                     sleep 500
                     println "You go down the left side of the path and encounter the bar owner's sword!"
                     sleep 500
-                    println ""
+                    println "You grab the sword, but suddenly the bar owner appears and tells you that the sword is a ruse to kill you!"
+                    sleep 500 
+                    println "But then a troll attacks and kill the bar owner!"
+                    sleep 500
+                    println "The troll attacks you!"
+                    combat 4, 0, 8, 1
+                    println "You killed the troll!"
+                    sleep 500 
+                    
                 } else {
                     //todo
                 }
