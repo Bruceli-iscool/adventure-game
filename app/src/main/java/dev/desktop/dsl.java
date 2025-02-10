@@ -1,6 +1,5 @@
 package dev.desktop;
 import java.util.List;
-import java.util.ArrayList;
 
 
 // code for a dsl for adventure-game
@@ -24,6 +23,9 @@ public class dsl {
 				in = true;
 				// todo
 			} else {
+				if (in && n.contains("}")) {
+					in = false;
+				}
 				System.out.println(n);
 				Thread.sleep(500);
 			}
