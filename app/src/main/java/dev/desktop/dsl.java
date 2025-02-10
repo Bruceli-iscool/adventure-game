@@ -19,7 +19,7 @@ public class dsl {
 	}
 	protected void parse() throws InterruptedException{
 		for (String n:content) {
-			content.forEach(number->System.out.println(number));
+			// print out content.forEach(number->System.out.println(content));
 		}
 
 	}	
