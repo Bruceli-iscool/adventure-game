@@ -1,7 +1,7 @@
 package dev.desktop;
 
 import java.io.IOException;
-
+import java.util.List;
 class characterCreator {
     int attack, defence, health, stamina, gold;
     public characterCreator() {
@@ -82,7 +82,7 @@ class characterCreator {
             e.printStackTrace();
         }
     }
-    protected void dsl(String content) throws InterruptedException, IOException {
+    protected void dsl(List<String> content) throws InterruptedException, IOException {
         dsl n = new dsl(attack, defence, health, stamina, 0, content);
         n.parse();
     }

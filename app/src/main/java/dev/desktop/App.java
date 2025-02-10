@@ -5,6 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileWriter;
 import java.util.regex.*;
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class App {
     public static int[] save = new int[6];
     public static File saveFile;
@@ -131,23 +135,23 @@ public class App {
     public static void loadScript() throws IOException, InterruptedException {
         String g = ask("Enter script filepath: ");
         File saveFile = new File(g);
-        String content = "";
+        List<String> content = new ArrayList<String>();
         try (Scanner scanner = new Scanner(saveFile)) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 if (first(line).equals("#")) {
                     continue;
                 } else {
-                content += scanner.nextLine();
+                    content.add(line);
                 }
         } 
         }catch (FileNotFoundException n) {
             System.err.println("Error! File not found!");
             System.exit(64);
         }
-        characterCreator c = new characterCreator();
-        Thread.sleep(500);
         System.out.println("Starting Script Character Creation Process!");
+        Thread.sleep(500);
+        characterCreator c = new characterCreator();
         Thread.sleep(500);
         c.dsl(content);
     }
