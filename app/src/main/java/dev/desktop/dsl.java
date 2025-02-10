@@ -18,8 +18,15 @@ public class dsl {
 		content = c;
 	}
 	protected void parse() throws InterruptedException{
+		boolean in = false;
 		for (String n:content) {
-			// print out content.forEach(number->System.out.println(content));
+			if (n.contains("option") && n.contains("{")) {
+				in = true;
+				// todo
+			} else {
+				System.out.println(n);
+				Thread.sleep(500);
+			}
 		}
 
 	}	
