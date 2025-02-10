@@ -1,4 +1,8 @@
 # testing the dsl for adventure game
-This is a test
-So is this
-and this too
+text {
+    john is such a cool dude
+    option {
+        steve and cool
+    }
+    cool people
+}
