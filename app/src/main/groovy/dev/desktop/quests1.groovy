@@ -358,8 +358,15 @@ class quests extends character {
                     k.quest9()
                 } else {
                     sleep 500
-                    println "You go down the right side of the path"
-                }
+                    println "You go down the right side of the path."
+                    sleep 500
+                    println "As you travel down the path, you encounter a troll!"
+                    sleep 500
+                    combat 4, 0, 8, 1
+                    println "You killed the troll!"
+                    sleep 500
+                    // todo 
+	               }
           }
         } else {
             sleep 500
