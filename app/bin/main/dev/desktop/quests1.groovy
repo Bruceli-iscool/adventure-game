@@ -301,7 +301,7 @@ class quests extends character {
                 println "He tells you that the sword is a ruse to kill you!"
                 sleep 500
                 println "He attacks you!"
-                combat(3, 0, 5, 2)
+                combat 3, 0, 5, 2
                 println "You kill the bar owner! (+10 gold)"
                 sleep 500
                 println "You leave the cave and return to town."
@@ -358,12 +358,34 @@ class quests extends character {
                     k.quest9()
                 } else {
                     sleep 500
-                    println "You go down the right side of the path"
-                }
+                    println "You go down the right side of the path."
+                    sleep 500
+                    println "As you travel down the path, you encounter a troll!"
+                    sleep 500
+                    combat 4, 0, 8, 1
+                    println "You killed the troll!"
+                    sleep 500
+                    println "The troll dropped 10 gold! (+10 gold)"
+		    sleep 500
+		    gold += 10
+		    println "You continue down the path and and encounter the bar owner's sword."
+		    sleep 500
+		    println "The bar owner appears and tells you the quest was a ruse to kill you!"
+		    sleep 500
+		    combat 3, 0, 8, 1
+                    println "You killed the bar owner and he drops 10 gold! (+10 gold) 
+		    gold += 10
+                    sleep 500
+		    println "You return back to the town."
+		    App.save attack, defence, health, stamina, 9, gold
+		    def k = new quest2(attack, defence, health, stamina, gold)
+		    k.quest9() 
+	     	 }
           }
         } else {
             sleep 500
             println ""
+	    // todo
         }
     }
     void quest8() throws InterruptedException, IOException {
