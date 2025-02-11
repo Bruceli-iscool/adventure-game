@@ -43,9 +43,9 @@ public class dsl extends character {
 					control = false;
 					continue;
 				} 
-					System.out.println(n);
-					Thread.sleep(500);
-				} 
+				System.out.println(n);
+				Thread.sleep(500);
+			} 
 			
 		}
 
