@@ -20,6 +20,7 @@ public class dsl extends character {
 	protected void parse() throws InterruptedException{
 		boolean in = false;
 		boolean on = false;
+		boolean control = false;
 		for (String n:content) {
 			n = n.trim();
 			if (n.contains("text") && n.contains("{")) {
@@ -28,17 +29,23 @@ public class dsl extends character {
 					in = true;
 			} else {
 				if (in && n.contains("}")) {
-						in = false;
-						continue;
-					} else if (on && !in && n.contains("}")) {
-						on = false;
-						continue;
-					} else if (in && n.contains("choice") && n.contains("{")) {
-						//todo
-					}
+					in = false;
+					continue;
+				} else if (on && !in && n.contains("}")) {
+					on = false;
+					continue;
+				} else if (in && n.contains("choice") && n.contains("{")) {
+					//todo
+				} else if (in && n.contains("control") && n.contains("{")) {
+					control = true;
+					continue;
+				} else if (control && n.contains("}")) {
+					control = false;
+					continue;
+				} 
 					System.out.println(n);
 					Thread.sleep(500);
-				}
+				} 
 			
 		}
 
