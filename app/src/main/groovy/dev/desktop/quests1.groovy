@@ -385,6 +385,20 @@ class quests extends character {
             sleep 500
             println "You enter the cave on the right side."
             sleep 500
+	    println "You see a treasure chest on the side. 1 to open it, 2 to ignore it."
+	    n = App.ask ">"
+	    if (n == "1") {
+	   	sleep 500
+		println "You try to open the chest but it was a trap!"
+		sleep 500
+		println "Poison arrows are fired at you! (-2 health)"
+		sleep 500
+		health -= 2
+		if (health <= 0) {
+		    death()
+		}
+            }
+	    sleep 500
 	    // todo
         }
     }
