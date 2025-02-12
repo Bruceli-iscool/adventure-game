@@ -13,7 +13,6 @@ class quests extends character {
         stamina = s
         gold = g
     }
-
     void quest5() throws InterruptedException, IOException {
         println "=========================================================\nQuest 5\n===================================================================="
         sleep 500
@@ -369,22 +368,23 @@ class quests extends character {
 		    sleep 500
 		    gold += 10
 		    println "You continue down the path and and encounter the bar owner's sword."
-		    sleep 500
+	   	    sleep 500
 		    println "The bar owner appears and tells you the quest was a ruse to kill you!"
 		    sleep 500
 		    combat 3, 0, 8, 1
-                    println "You killed the bar owner and he drops 10 gold! (+10 gold)"
+            println "You killed the bar owner and he drops 10 gold! (+10 gold)"
 		    gold += 10
-                    sleep 500
+            sleep 500
 		    println "You return back to the town."
 		    App.save attack, defence, health, stamina, 9, gold
 		    def k = new quest2(attack, defence, health, stamina, gold)
 		    k.quest9() 
-	     	 }
+        	 }
           }
         } else {
             sleep 500
-            println ""
+            println "You enter the cave on the right side."
+            sleep 500
 	    // todo
         }
     }
