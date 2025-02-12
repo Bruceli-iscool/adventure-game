@@ -373,7 +373,7 @@ class quests extends character {
 		    println "The bar owner appears and tells you the quest was a ruse to kill you!"
 		    sleep 500
 		    combat 3, 0, 8, 1
-                    println "You killed the bar owner and he drops 10 gold! (+10 gold) 
+                    println "You killed the bar owner and he drops 10 gold! (+10 gold)"
 		    gold += 10
                     sleep 500
 		    println "You return back to the town."
