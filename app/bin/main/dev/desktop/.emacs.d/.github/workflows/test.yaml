@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    paths-ignore:
+    - '**.md'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        emacs_version:
+          - 28.2
+          - 29.1
+
+    steps:
+    - uses: purcell/setup-emacs@master
+      with:
+        version: ${{ matrix.emacs_version }}
+
+    - uses: actions/checkout@v1
+    - name: Test init
+      run: ./bin/test-init.sh
+
+    - uses: actions/checkout@v1
+    - name: Test init export
+      run: ./bin/test-init-export.sh
