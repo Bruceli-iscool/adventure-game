@@ -444,5 +444,30 @@ class quests extends character {
         // todo
         health += 1
         shop()
+        println "You follow the guards directions to the location of the kings crown."
+        sleep 500
+        println "But as you continue down the path you encounter a bandit!"
+        combat 3, 0, 4, 1
+        println "You killed the bandit! He drops a potion of minor healing (+1 health)."
+        health += 1
+        sleep 500
+        println "As you continue down the path you see a broken drawbridge ahead!"
+        sleep 500
+        println "1 to swim across the river, 2 to gather some wood to repair the bridge."
+        def n = App.ask ">"
+        if (n=="1") {
+            sleep 500
+            println "You swim across the river but you are hurt by the violent currents! (-2 health)"
+            health -= 2
+            if (health <= 0) {
+                death()
+            }
+            sleep 500
+        } else {
+            sleep 500
+            println "You walk into the forest to gather some wood and repair the bridge."
+            sleep 500
+        }
+        // todo
     }
 }
