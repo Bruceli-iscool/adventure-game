@@ -364,6 +364,9 @@ void combat(int a, int d, int h, int s) throws InterruptedException {
         death();
     }
     }
+void printStats() throws InterruptedException {
+    System.out.println("Your stats are:\sattack:\s"+attack+"\ndefence: "+ defence + "\nhealth: "+health+"stamina: "+stamina);
+} 
 
 }
 

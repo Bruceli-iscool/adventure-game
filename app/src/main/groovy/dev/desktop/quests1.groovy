@@ -394,16 +394,48 @@ class quests extends character {
 		        println "Poison arrows are fired at you! (-2 health)"
 		        sleep 500
 	    	    health -= 2
-		    if (health <= 0) {
-		        death()
-		    }
+		        if (health <= 0) {
+		         death()
+		        }
             }
 	        sleep 500
             println "As you continue down the path you encounter a rock slide!"
             sleep 500
             println "Now your path ahead is blocked by a pile of rocks!"
             sleep 500
-	        // todo
+            println "You see a lever connected to a wire nearby, 1 to pull the lever, 2 to inspect the wire."
+            n = App.ask ">"
+            if (n == "1") {
+                sleep 500
+                println "You pull the lever and the rocks are cleared away. But it also activated a wire connected to a trap! (-1 health)"
+                health -= 1
+                if (health <= 0) {
+                    death()
+                }
+            } else {
+                sleep 500
+                println "You inspect the wire and see that there is two wires, one goes to the contraption that clears the rocks, one goes to a trap!"
+                sleep 500
+                println "You cut the wire that connects to the trap and pull the lever, clearing the rocks"
+            }
+            sleep 500
+            println "You continue down the path and encounter a troll!"
+            combat 3, 0, 8, 1
+            print "You killed the troll! The troll dropped 10 gold (+ 10 gold)"
+            gold += 10
+            sleep 500
+            println "You continue down the path and encounter the bar owner. He tells you that this quest is a ruse to kill you!"
+            sleep 500
+            println "The bar owner attacks you!"
+            combat 2, 0, 12, 1
+            sleep 500
+            println "You killed the bar owner! He drops 10 gold (+10 gold)"
+            gold += 10
+            sleep 500
+            println "You return back to the town"
+            App.save attack, defence, health, stamina, gold
+            def k = new quest2(attack, defence, health, stamina, gold)
+            k.quest9()
         }
     }
     void quest8() throws InterruptedException, IOException {
