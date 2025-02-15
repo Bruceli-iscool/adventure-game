@@ -468,6 +468,15 @@ class quests extends character {
             println "You walk into the forest to gather some wood and repair the bridge."
             sleep 500
         }
-        // todo
+        println "You go into the forest on the other side of the river and encounter a witch!"
+        combat 2, 0, 7, 1
+        println "You kill the witch! The witch drops a potion of minor healing (+1 health)"
+        sleep 500
+        health += 1
+        println "You also find a map to the witch house! 1 to travel to the witch house, 2 to continue on the path"
+        n = App.ask ">"
+        if (n=="1") {
+            //todo
+        }
     }
 }
