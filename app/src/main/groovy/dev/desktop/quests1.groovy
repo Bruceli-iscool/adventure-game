@@ -486,6 +486,8 @@ class quests extends character {
             println "You killed the witch!"
         }
         sleep 500
-    println "You continue down"
+    println "You continue down the path"
+    sleep 500 
+    println ""
     }
 }
