@@ -476,8 +476,16 @@ class quests extends character {
         println "You also find a map to the witch house! 1 to travel to the witch house, 2 to continue on the path"
         n = App.ask ">"
         if (n=="1") {
-            //todo
+            sleep 500
+            println "You travel to the witch house and encounter a witch who throws a poison potion at you! (-2 health)"
+            health -= 2
+            if (health <= 0) {
+                death();
+            }
+            sleep 500
+            println "You killed the witch!"
         }
-        // todo
+        sleep 500
+    println "You continue down"
     }
 }
