@@ -491,5 +491,7 @@ class quests extends character {
     println "As you continue down the path you see an orc!"
     combat 3, 0, 4, 1
     println "You killed the orc!"
+    sleep 500
+    println "You continue down the path."
     }
 }
