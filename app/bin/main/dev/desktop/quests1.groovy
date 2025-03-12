@@ -385,21 +385,57 @@ class quests extends character {
             sleep 500
             println "You enter the cave on the right side."
             sleep 500
-	    println "You see a treasure chest on the side. 1 to open it, 2 to ignore it."
-	    n = App.ask ">"
-	    if (n == "1") {
-	   	sleep 500
-		println "You try to open the chest but it was a trap!"
-		sleep 500
-		println "Poison arrows are fired at you! (-2 health)"
-		sleep 500
-		health -= 2
-		if (health <= 0) {
-		    death()
-		}
+	         println "You see a treasure chest on the side. 1 to open it, 2 to ignore it."
+	        n = App.ask ">"
+	        if (n == "1") {
+	   	        sleep 500
+		        println "You try to open the chest but it was a trap!"
+		        sleep 500
+		        println "Poison arrows are fired at you! (-2 health)"
+		        sleep 500
+	    	    health -= 2
+		        if (health <= 0) {
+		         death()
+		        }
             }
-	    sleep 500
-	    // todo
+	        sleep 500
+            println "As you continue down the path you encounter a rock slide!"
+            sleep 500
+            println "Now your path ahead is blocked by a pile of rocks!"
+            sleep 500
+            println "You see a lever connected to a wire nearby, 1 to pull the lever, 2 to inspect the wire."
+            n = App.ask ">"
+            if (n == "1") {
+                sleep 500
+                println "You pull the lever and the rocks are cleared away. But it also activated a wire connected to a trap! (-1 health)"
+                health -= 1
+                if (health <= 0) {
+                    death()
+                }
+            } else {
+                sleep 500
+                println "You inspect the wire and see that there is two wires, one goes to the contraption that clears the rocks, one goes to a trap!"
+                sleep 500
+                println "You cut the wire that connects to the trap and pull the lever, clearing the rocks"
+            }
+            sleep 500
+            println "You continue down the path and encounter a troll!"
+            combat 3, 0, 8, 1
+            print "You killed the troll! The troll dropped 10 gold (+ 10 gold)"
+            gold += 10
+            sleep 500
+            println "You continue down the path and encounter the bar owner. He tells you that this quest is a ruse to kill you!"
+            sleep 500
+            println "The bar owner attacks you!"
+            combat 2, 0, 12, 1
+            sleep 500
+            println "You killed the bar owner! He drops 10 gold (+10 gold)"
+            gold += 10
+            sleep 500
+            println "You return back to the town"
+            App.save attack, defence, health, stamina, gold
+            def k = new quest2(attack, defence, health, stamina, gold)
+            k.quest9()
         }
     }
     void quest8() throws InterruptedException, IOException {
@@ -408,5 +444,54 @@ class quests extends character {
         // todo
         health += 1
         shop()
+        println "You follow the guards directions to the location of the kings crown."
+        sleep 500
+        println "But as you continue down the path you encounter a bandit!"
+        combat 3, 0, 4, 1
+        println "You killed the bandit! He drops a potion of minor healing (+1 health)."
+        health += 1
+        sleep 500
+        println "As you continue down the path you see a broken drawbridge ahead!"
+        sleep 500
+        println "1 to swim across the river, 2 to gather some wood to repair the bridge."
+        def n = App.ask ">"
+        if (n=="1") {
+            sleep 500
+            println "You swim across the river but you are hurt by the violent currents! (-2 health)"
+            health -= 2
+            if (health <= 0) {
+                death()
+            }
+            sleep 500
+        } else {
+            sleep 500
+            println "You walk into the forest to gather some wood and repair the bridge."
+            sleep 500
+        }
+        println "You go into the forest on the other side of the river and encounter a witch!"
+        combat 2, 0, 7, 1
+        println "You kill the witch! The witch drops a potion of minor healing (+1 health)"
+        sleep 500
+        health += 1
+        println "You also find a map to the witch house! 1 to travel to the witch house, 2 to continue on the path"
+        n = App.ask ">"
+        if (n=="1") {
+            sleep 500
+            println "You travel to the witch house and encounter a witch who throws a poison potion at you! (-2 health)"
+            health -= 2
+            if (health <= 0) {
+                death();
+            }
+            sleep 500
+            println "You killed the witch!"
+        }
+        sleep 500
+    println "You continue down the path"
+    sleep 500 
+    println "As you continue down the path you see an orc!"
+    combat 3, 0, 4, 1
+    println "You killed the orc!"
+    sleep 500
+    println "You continue down the path."
     }
 }

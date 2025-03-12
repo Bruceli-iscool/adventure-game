@@ -18,37 +18,26 @@ public class dsl extends character {
 		content = c;
 	}
 	protected void parse() throws InterruptedException{
-		boolean in = false;
-		boolean on = false;
         boolean mode = false;
-		boolean control = false;
 		for (String n:content) {
 			n = n.trim();
-			if (n.contains("text") && n.contains("{")) {
-				on = true;
-			} else if (n.contains("option") && n.contains("{") && on) {
-					in = true;
-			} else {
-				if (in && n.contains("}")) {
-					in = false;
-					continue;
-				} else if (on && !in && n.contains("}")) {
-					on = false;
-					continue;
-				} else if (in && n.contains("choice") && n.contains("{")) {
-					mode = true;
-				} else if (in && n.contains("control") && n.contains("{")) {
-					control = true;
-					continue;
-				} else if (control && n.contains("}")) {
-					control = false;
-					continue;
-				} else if (mode && n.contains("choice") && n.contains("(")) {
-                    
-                }
-				System.out.println(n);
-				Thread.sleep(500);
-			} 
+			if (n.contains("combat(")) {
+				String newN = n.replace("combat(", "");
+				try {
+					newN = newN.replace(")", "");
+					newN = newN.replace(";", "");
+					String[] arr = newN.split(",");
+					int[] arr2 = new int[3];
+					int index = 0;
+					for (String i:arr) {
+						int current = Integer.parseInt(i);
+						arr2[index] = current;
+						index++;
+					}
+				} catch (Exception e) {
+					System.err.println("Adv: An Error Occured: " + e);
+				}
+			}
 			
 		}
 
