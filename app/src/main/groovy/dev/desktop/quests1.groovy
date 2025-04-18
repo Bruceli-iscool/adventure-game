@@ -493,5 +493,12 @@ class quests extends character {
     println "You killed the orc!"
     sleep 500
     println "You continue down the path."
+    sleep 500
+    println "You encounter a dungeon, would you like a tutorial? 1 to accept, 2 to decline."
+    n = App.ask ">"
+    if (n=="1") {
+        dungeonTutorial()
+    } 
     }
+
 }

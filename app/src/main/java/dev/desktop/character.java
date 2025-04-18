@@ -13,7 +13,13 @@ class character {
         stamina = s;
         gold = g;
     }
-
+    public void dungeonTutorial() {
+        System.out.println( "A Dungeon is a mini level with many enemies and no support.");
+        Thread.sleep (500);
+        System.out.println ("A Dungeon always have a boss guarding it. A boss has more health than normal enemies.");
+        Thread.sleep (500);
+        System.out.println ("Dungeons also include better loot than most levels");
+    }
     public void start() throws InterruptedException, IOException {
         App.save(attack, defence, health, stamina, 0, 0);
         System.out.println(
