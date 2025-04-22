@@ -1,8 +1,3 @@
 # testing the dsl for adventure game
-text {
-    john is such a cool dude
-    option {
-        steve and cool
-    }
-    cool people
-}
+cool
+combat(2, 3, 4, 5);
