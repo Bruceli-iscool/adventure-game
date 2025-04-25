@@ -1,5 +1,5 @@
 package dev.desktop;
-import java.util.List;
+import java.util.ArrayList;
 
 
 // code for a dsl for adventure-game
@@ -18,10 +18,50 @@ public class dsl extends character {
 		gold = g;
 		content = c;
 	}
-	protected void lex() {
+	protected ArrayList<String> lex() {
+        ArrayList<String> result = new ArrayList<String>();
+        String z = "";
+        boolean ifString = false;
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+            switch (c) {
+                case '(': case ')': case ';': case '=': case '+': case '-': case '*': case '/':
+                    if (!z.isEmpty()) {
+                        result.add(z);
+                        z = "";
+                    }
+                    result.add(String.valueOf(c));
+                    break;
+                case '"':
+                    if (!z.isEmpty() && ifString) {
+                        ifString = false;
+                        result.add(z);
+                        z = "";
+                    } else {
+                        ifString = true;
+                    }
+                    result.add("\"");
+                    break;
+                case ' ':
+                    if (!z.isEmpty() && !ifString) {
+                        result.add(z);
+                        z = "";
+                    } else if (ifString) {
+                        z += c;
+                    }
+                    break;
+                default:
+                    z += c;
+                    break;
+            }
+        }
+        if (!z.isEmpty()) {
+            result.add(z);
+        }
 
+        return result;		
 	}
-	protected void parse() throws InterruptedException{
+	protected void parse(ArrayList<String> tokens) throws InterruptedException{
 
 
 	}	
