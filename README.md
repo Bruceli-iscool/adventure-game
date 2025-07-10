@@ -1,8 +1,7 @@
  ![code](https://github.com/Bruceli-iscool/adventure-game/actions/workflows/codeql.yml/badge.svg) [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 # Adventure-Game
-A maybe abandoned dungeon crawler/adventure game written in java 
-
+A probably abandoned dungeon crawler/adventure game written in java 
 # PLaying the Game
 Make sure you have Gradle and Java (21 or above) installed.
 Clone the repo and run `gradle build` in the project directory.
