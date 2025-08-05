@@ -2,6 +2,7 @@ package dev.desktop;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.ArrayList;
 class characterCreator {
     int attack, defence, health, stamina, gold;
     public characterCreator() {
@@ -84,6 +85,6 @@ class characterCreator {
     }
     protected void dsl(List<String> content) throws InterruptedException, IOException {
         dsl n = new dsl(attack, defence, health, stamina, 0, content);
-        n.parse();
+        n.parse(new ArrayList<String>());
     }
 }

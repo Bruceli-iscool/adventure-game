@@ -1,5 +1,5 @@
 package dev.desktop;
-import java.util.ArrayList;
+import java.util.*;
 
 
 // code for a dsl for adventure-game
@@ -22,6 +22,8 @@ public class dsl extends character {
         ArrayList<String> result = new ArrayList<String>();
         String z = "";
         boolean ifString = false;
+        // Use content instead of input
+        String input = String.join(" ", content);
         for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
             switch (c) {

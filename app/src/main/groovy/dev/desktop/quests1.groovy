@@ -498,7 +498,10 @@ class quests extends character {
     n = App.ask ">"
     if (n=="1") {
         dungeonTutorial()
-    } 
+    } else {
+
+    }
     }
 
 }
+ 
